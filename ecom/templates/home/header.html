@@ -1,0 +1,30 @@
+{% load static %}
+<div class="header-area" id="headerArea">
+  <div class="container h-100 d-flex align-items-center justify-content-between d-flex rtl-flex-d-row-r">
+    <!-- Logo Wrapper -->
+    <div class="logo-wrapper">
+      <a href="home.html"><img src="img/core-img/logo-small.png" alt="" /></a>
+    </div>
+    <div class="navbar-logo-container d-flex align-items-center">
+      <!-- Cart Icon -->
+      <div class="cart-icon-wrap">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span>2</span></a>
+      </div>
+      <!-- User Profile Icon -->
+      <a class="btn btn-primary" href="#" data-animation="fadeInUp" data-delay="800ms" data-duration="1000ms">Post Free Add</a>
+      <!-- Navbar Toggler -->
+      <div class="suha-navbar-toggler ms-2">
+        {% if request.user.is_authenticated %}
+        <div data-bs-toggle="offcanvas" data-bs-target="#suhaOffcanvas" aria-controls="suhaOffcanvas">
+          <div><span></span><span></span><span></span></div>
+        </div>
+        {% else %}
+        <a href="{% url 'accounts:login' %}">
+          <img src="{% static 'img/core-img/login.png' %}" alt="Login" />
+          <!-- Replace this with the path to your login icon -->
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
