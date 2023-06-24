@@ -35,3 +35,16 @@ class UserProfileForm(forms.ModelForm):
         profile.user.name = self.cleaned_data['name']
         profile.user.save()
         return profile
+
+
+class ResetPasswordForm(forms.Form):
+    password = forms.CharField(widget=forms.PasswordInput())
+    password_confirmation = forms.CharField(widget=forms.PasswordInput())
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get('password')
+        password_confirmation = cleaned_data.get('password_confirmation')
+
+        if password and password_confirmation and password != password_confirmation:
+            self.add_error('password_confirmation', "Password and password confirmation must match.")

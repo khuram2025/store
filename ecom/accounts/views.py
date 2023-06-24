@@ -1,7 +1,19 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .forms import RegistrationForm
+from .forms import RegistrationForm, ResetPasswordForm
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from django.contrib.auth.models import User
+import random
+from .models import Account
+
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect,get_object_or_404
+from .forms import LoginForm
+
+from .models import UserProfile
 
 def register(request):
     if request.method == 'POST':
@@ -14,11 +26,7 @@ def register(request):
 
     return render(request, 'accounts/register.html', {'form': form})
 
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect,get_object_or_404
-from .forms import LoginForm
 
-from .models import UserProfile
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -72,3 +80,66 @@ def edit_profile(request, pk):
 }
     return render(request, 'accounts/edit_profile.html', context)
 
+
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from .models import Account
+from .forms import ResetPasswordForm
+import random
+
+def reset_password_request_view(request):
+    if request.method == 'POST':
+        mobile_number = request.POST['mobile_number']
+        user = Account.objects.filter(mobile_number=mobile_number).first()
+
+        if user:
+            otp = random.randint(100000, 999999)
+            print(f"OTP for reset password: {otp}")  # Prints OTP on console
+            request.session['reset_password_otp'] = str(otp)
+            request.session['reset_password_user_id'] = user.id
+            return redirect('accounts:verify_otp', user_id=user.id)
+        else:
+            # Handle case when user with entered mobile number does not exist
+            return HttpResponse("No user with this mobile number.", status=404)
+
+    return render(request, 'accounts/reset_password_request.html')
+
+
+def verify_otp_view(request, user_id):
+    stored_otp = request.session.get('reset_password_otp')
+
+    if request.method == 'POST':
+        otp = "".join(request.POST.getlist('otp'))  # concatenate all inputs
+
+        if otp == stored_otp:
+            return redirect('accounts:reset_password', user_id=user_id)
+        else:
+            return HttpResponse("Invalid OTP.", status=400)
+
+    return render(request, 'accounts/verify_otp.html', {"user_id": user_id})
+
+
+def reset_password_view(request, user_id):
+    user = Account.objects.get(pk=user_id)
+    if user is None:
+        return HttpResponse("No user found for the provided id.", status=404)
+
+    if request.method == 'POST':
+        form = ResetPasswordForm(request.POST)
+        if form.is_valid():
+            password = form.cleaned_data.get('password')
+            password_confirmation = form.cleaned_data.get('password_confirmation')
+            if password and password == password_confirmation:
+                user.set_password(password)
+                user.save()
+                return redirect('accounts:login')
+            else:
+                return HttpResponse("Passwords do not match.", status=400)
+        else:
+            # Handle form validation errors
+            return HttpResponse(form.errors.as_json(), status=400)
+    else:
+        form = ResetPasswordForm()
+
+    context = {"form": form, "user_id": user_id}
+    return render(request, 'accounts/reset_password.html', context)
