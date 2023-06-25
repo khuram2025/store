@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
-from products.models import Category
+from products.models import Category, Product
 
 def home(request):
     categories = Category.objects.all()
-    return render(request, 'home/home.html', {'categories': categories})
+    products = Product.objects.filter(is_active=True)
+    return render(request, 'home/home.html', {'categories': categories, 'products':products})

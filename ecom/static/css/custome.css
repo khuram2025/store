@@ -1,0 +1,108 @@
+body {
+  background: #eee;
+}
+
+.prod-list-icon-container {
+  border-radius: 7px;
+}
+.prod-list-price {
+  color: #333;
+}
+
+.prod-list-price h5 {
+  display: inline;
+  margin-right: 10px;
+}
+
+.prod-list-price span {
+  font-size: 0.8em;
+}
+.filter-section .input-group-text {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.filter-section .custom-select {
+  max-width: 200px;
+}
+
+.prod-list-stars i {
+  margin-right: 2px;
+  color: red;
+  font-size: 13px;
+}
+
+.prod-list-rating-number {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.prod-list-number-ratings {
+  font-size: 15px;
+}
+.product-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+.prod-list-ratings {
+  margin-top: 10px; /* Space from the title */
+  flex-grow: 1; /* Make the ratings flex container grow to use available space */
+}
+
+.prod-list-rating-number {
+  font-size: 1em; /* Decrease the font size */
+  flex-shrink: 1;
+}
+
+.prod-list-stars .fa-star {
+  color: #ff9800; /* Change the star color to orange */
+  margin-right: 0.1px; /* Decrease the distance between stars */
+}
+
+.prod-list-number-ratings {
+  font-size: 0.9em; /* Decrease the font size */
+  color: #999; /* Change the color to grey */
+  flex-shrink: 1;
+}
+
+.prod-list-level {
+  margin-top: 10px; /* Space from the title */
+}
+
+.prod-list-level span {
+  font-size: 1em; /* Decrease the font size */
+  flex-shrink: 1;
+}
+
+.prod-list-level span.font-weight-bold {
+  margin-left: 5px; /* Add space between label and value */
+}
+.no-margin {
+  margin: 0.5em 0;
+}
+.prod-list-listing-title {
+  margin-bottom: -7px;
+}
+
+.prod-list-progress-bar {
+  background: green;
+}
+
+.progress {
+  height: 16px;
+}
+
+.prod-list-tags span {
+  margin-right: 9px;
+  border: 1px solid green;
+  padding-right: 9px;
+  padding-left: 9px;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  border-radius: 7px;
+  background-color: green;
+  color: #fff;
+}

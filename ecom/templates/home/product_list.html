@@ -1,0 +1,79 @@
+<div class="container mb-1">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="bg-white p-3 rounded mt-2 prod-list-container">
+        <div class="row">
+          <div class="col-md-3">
+            {% if product.product_image.all %}
+            <img class="product-image" src="{{product.product_image.all.0.image.url}}" />
+            {% endif %}
+          </div>
+          <div class="col-md-6 border-right">
+            <div class="prod-list-listing-title">
+              <h4>{{product.title}}</h4>
+            </div>
+            <div class="d-flex flex-row align-items-center justify-content-between">
+              <div class="d-flex flex-row align-items-center prod-list-ratings">
+                <span class="mr-1 prod-list-rating-number">4</span>
+                <div class="prod-list-stars">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <span class="mr-2 prod-list-number-ratings">(12342 ratings)</span>
+              </div>
+              <div class="prod-list-level mr-1"><span>Time:</span><span class="font-weight-bold">1h 20m</span></div>
+            </div>
+            <div class="d-flex flex-row align-items-center justify-content-between mt-2">
+              <div class="prod-list-price">
+                <h5 class="font-weight-bold">Rs. 500</h5>
+                <span>/ KG (Unit)</span>
+              </div>
+            </div>
+            <div class="prod-list-description">
+              {% for spec_value in product.productspecificationvalue_set.all %} {% if forloop.counter <= 4 %}
+              <p class="no-margin"><strong>{{ spec_value.specification.name }}:</strong>&nbsp;{{ spec_value }}</p>
+              {% endif %} {% endfor %} {% if product.productspecificationvalue_set.all|length > 4 %}
+              <a href="#">Show more...</a>
+              {% endif %}
+            </div>
+
+            <div class="prod-list-tags mb-2">
+              {% for spec_value in product.productspecificationvalue_set.all %}
+              <span>{{ spec_value }}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="d-flex col-md-3">
+            <div class="d-flex flex-column justify-content-start prod-list-user-profile w-100">
+              <div class="d-flex prod-list-user">
+                <img class="rounded-circle" src="https://i.imgur.com/6dOWqJu.jpg" width="50" />
+                <div class="about ml-1"><span class="d-block text-black font-weight-bold">Jason Hamza</span><span>Cloud consultant</span></div>
+              </div>
+              <div class="prod-list-progresses">
+                <span>Designing</span>
+                <div class="progress mt-1">
+                  <div class="prod-list-progress-bar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">50%</div>
+                </div>
+              </div>
+              <div class="prod-list-progresses">
+                <span>Expertise</span>
+                <div class="progress mt-1">
+                  <div class="prod-list-progress-bar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">50%</div>
+                </div>
+              </div>
+              <div class="prod-list-progresses">
+                <span>Awareness</span>
+                <div class="progress mt-1">
+                  <div class="prod-list-progress-bar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">50%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

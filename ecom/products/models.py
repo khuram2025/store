@@ -8,7 +8,7 @@ from django.utils.text import slugify
 
 class Category(MPTTModel):
     """
-    Category Table implimented with MPTT.
+    Category Table implemented with MPTT.
     """
 
     name = models.CharField(
@@ -20,6 +20,7 @@ class Category(MPTTModel):
     slug = models.SlugField(verbose_name=_("Category safe URL"), max_length=255, unique=True, blank=True)
     parent = TreeForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name="children")
     is_active = models.BooleanField(default=True)
+    image = models.ImageField(upload_to='categories/', blank=True, null=True)
 
     class MPTTMeta:
         order_insertion_by = ["name"]
@@ -36,10 +37,8 @@ class Category(MPTTModel):
     def get_children(self):
         return self.get_descendants().filter(level=self.level+1)
 
-
     def __str__(self):
         return self.name
-
 
 
 class ProductType(models.Model):
@@ -132,6 +131,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
 class ProductChoice(models.Model):
     specification = models.ForeignKey(ProductSpecification, on_delete=models.CASCADE, related_name='choices')
     value = models.CharField(max_length=255)
