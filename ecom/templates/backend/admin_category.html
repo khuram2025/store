@@ -1,0 +1,146 @@
+{% extends 'backend/base.html' %} {% load static %} {% block content %}
+
+<!-- All Category Table Start -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-table">
+        <div class="card-body">
+          <div class="title-header option-title">
+            <h5>All Category</h5>
+            <form class="d-inline-flex">
+              <a href="{% url 'products:category_new' %}" class="align-items-center btn btn-theme d-flex"> <i data-feather="plus-square"></i>Add New </a>
+            </form>
+          </div>
+
+          <div class="table-responsive category-table">
+            <div>
+              <table class="table all-package theme-table" id="table_id">
+                <thead>
+                  <tr>
+                    <th>Category Name</th>
+
+                    <th>Category Image</th>
+                    <th>Icon</th>
+                    <th>Slug</th>
+                    <th>Option</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {% for category in categories %}
+                  <tr>
+                    <td>{{ category.name }}</td>
+
+                    <td>
+                      <div class="table-image">
+                        {% if category.image %}
+                        <img src="{{ category.image.url }}" class="img-fluid" alt="" />
+                        {% else %}
+                        <p>No image</p>
+                        {% endif %}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="category-icon">
+                        <!-- Add your logic to display icon -->
+                      </div>
+                    </td>
+                    <td>{{ category.slug }}</td>
+                    <td>
+                      <ul>
+                        <li>
+                          <a href="{% url 'products:category_detail' category.slug %}">
+                            <i class="ri-eye-line"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="{% url 'products:category_edit' category.slug %}">
+                            <i class="ri-pencil-line"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="delete-btn" data-category-id="{{ category.id }}" data-category-slug="{{ category.slug }}">
+                            <i class="ri-delete-bin-line"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- All Category Table Ends-->
+<div class="modal fade theme-modal remove-coupon" id="exampleModalToggle" aria-hidden="true" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <form id="deleteForm" method="POST" style="display: none">{% csrf_token %}</form>
+
+    <div class="modal-content">
+      <div class="modal-header d-block text-center">
+        <h5 class="modal-title w-100" id="exampleModalLabel22">Are You Sure ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="remove-box">
+          <p>The permission for the use/group, preview is inherited from the object, object will create a new permission for this object</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-animation btn-md fw-bold" id="confirmDeleteBtn">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade theme-modal remove-coupon" id="exampleModalToggle2" aria-hidden="true" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel12">Done!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="remove-box text-center">
+          <div class="wrapper">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+          </div>
+          <h4 class="text-content">It's Removed.</h4>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $(".delete-btn").on("click", function () {
+      var categoryId = $(this).data("category-id");
+      var formAction = "{% url 'products:category_delete' 'placeholder' %}".replace("placeholder", categoryId);
+      $("#deleteForm").attr("action", formAction);
+      $("#exampleModalToggle").modal("show");
+    });
+
+    $("#confirmDeleteBtn").on("click", function () {
+      $("#deleteForm").submit();
+    });
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load static %}
+<header class="header">
+  <div class="logo-wrap">
+    <i class="iconly-Category icli"></i>
+    <a href="index.html"> <img class="logo logo-w" src="{% static 'pwa/images/logo/logo-w.png' %}" alt="logo" /></a><a href="index.html"> <img class="logo" src="{% static 'pwa/images/logo/logo.png' %}" alt="logo" /></a>
+  </div>
+  <div class="avatar-wrap">
+    <span class="font-sm"><i class="iconly-Location icli font-xl"></i> Los Angeles</span>
+    <a href="{% url 'accounts:accounts' %}"><img class="avatar" src="{% static 'pwa/images/avatar/avatar.jpg' %}" alt="avatar" /></a>
+  </div>
+</header>

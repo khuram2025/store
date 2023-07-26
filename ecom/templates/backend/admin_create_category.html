@@ -1,0 +1,62 @@
+{% extends 'backend/base.html' %} {% load static %} {% block content %}
+
+<!-- New Category Add Start -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-sm-8 m-auto">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-header-2">
+                <h5>Category Information</h5>
+              </div>
+
+              <form class="theme-form theme-form-2 mega-form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="mb-4 row align-items-center">
+                  <label class="form-label-title col-sm-3 mb-0">Category Name</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" type="text" name="name" placeholder="Category Name" required />
+                  </div>
+                </div>
+
+                <div class="mb-4 row align-items-center">
+                  <label class="col-sm-3 col-form-label form-label-title">Category Image</label>
+                  <div class="form-group col-sm-9">
+                    <input type="file" name="image" class="form-control-file" />
+                  </div>
+                </div>
+
+                <div class="mb-4 row align-items-center">
+                  <div class="col-sm-3 form-label-title">Parent Category</div>
+                  <div class="col-sm-9">
+                    <select name="parent" class="form-select">
+                      <option selected>Choose...</option>
+                      {% for category in categories %}
+                      <option value="{{ category.id }}">{{ category.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="mb-4 row align-items-center">
+                  <div class="col-sm-3 form-label-title">Is Active</div>
+                  <div class="col-sm-9">
+                    <input class="form-check-input" type="checkbox" name="is_active" />
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- New Category Add End -->
+
+{% endblock %}

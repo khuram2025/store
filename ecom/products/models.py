@@ -169,7 +169,6 @@ class ProductSpecificationValue(models.Model):
         else:
             return 'Invalid type'
 
-
 class ProductImage(models.Model):
     """
     The Product Image table.

@@ -1,0 +1,102 @@
+{% extends 'pwa/home/base.html' %} {% block content %}
+<!-- Skeleton loader Start -->
+<div class="skeleton-loader">
+  <!-- Header Start -->
+  {%include 'pwa/widgets/header.html'%}
+  <!-- Header End -->
+
+  <!--Main Start -->
+  {%include 'pwa/widgets/main.html'%}
+  <!--Main End -->
+</div>
+<!-- Skeleton loader End -->
+
+<!-- Header Start -->
+{%include 'pwa/widgets/header.html'%}
+<!-- Header End -->
+
+<!-- Sidebar Start -->
+{%include 'pwa/widgets/sidebar.html'%}
+<!-- Sidebar End -->
+
+<!-- Main Start -->
+<main class="main-wrap index-page mb-xxl">
+  <!-- Search Box Start -->
+  <div class="search-box">
+    <i class="iconly-Search icli search"></i>
+    <input class="form-control" type="search" placeholder="Search here..." />
+    <i class="iconly-Voice icli mic"></i>
+  </div>
+  <!-- Search Box End -->
+
+  <!-- Banner Section Start -->
+  {%include 'pwa/widgets/banner.html'%}
+  <!-- Banner Section End -->
+
+  <!-- Buy from Recently Bought Start -->
+  {%include 'pwa/widgets/recentbuy.html'%}
+  <!-- Buy from Recently Bought End -->
+
+  <!-- Shop By Category Start -->
+  {%include 'pwa/widgets/shopbycat.html'%}
+  <!-- Shop By Category End -->
+
+  <!-- Say hello to Offers! Start -->
+  {%include 'pwa/widgets/offers.html'%}
+  <!-- Say hello to Offers! End -->
+
+  <!-- Lowest Price Start -->
+  {%include 'pwa/widgets/lowestprice.html'%}
+  <!-- Lowest Price End -->
+
+  <!-- Coupons For You Start -->
+  {%include 'pwa/widgets/coupens.html'%}
+  <!-- Coupens For You End -->
+
+  <!-- Question section Start -->
+  <section class="question-section pt-0">
+    <h5>Didn’t find what you were looking for?</h5>
+    <a href="category-wide.html" class="btn-solid">Browse Category</a>
+  </section>
+  <!-- Question section End -->
+</main>
+<!-- Main End -->
+
+<!-- Footer Start -->
+{%include 'pwa/widgets/footer.html'%}
+<!-- Footer End -->
+
+<!-- Action Language Start -->
+<div class="action action-language offcanvas offcanvas-bottom" tabindex="-1" id="language" aria-labelledby="language">
+  <div class="offcanvas-body small">
+    <h2 class="m-b-title1 font-md">Select Language</h2>
+
+    <ul class="list">
+      <li>
+        <a href="javascript:void(0)" data-bs-dismiss="offcanvas" aria-label="Close"> <img src="assets/icons/flag/us.svg" alt="us" /> English </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)" data-bs-dismiss="offcanvas" aria-label="Close"> <img src="assets/icons/flag/in.svg" alt="us" />Indian </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)" data-bs-dismiss="offcanvas" aria-label="Close"> <img src="assets/icons/flag/it.svg" alt="us" />Italian</a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)" data-bs-dismiss="offcanvas" aria-label="Close"> <img src="assets/icons/flag/tf.svg" alt="us" /> French</a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)" data-bs-dismiss="offcanvas" aria-label="Close"> <img src="assets/icons/flag/cn.svg" alt="us" /> Chines</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- Action Language End -->
+
+<!-- Pwa Install App Popup Start -->
+
+<!-- Pwa Install App Popup End -->
+{% endblock %}

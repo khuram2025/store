@@ -1,0 +1,59 @@
+{% extends 'pwa/accounts/base.html' %} {% load static %} {% block content %}
+<div class="bg-pattern-wrap ratio2_1">
+  <!-- Background Image -->
+  <div class="bg-patter">
+    <img src="{% static 'pwa/images/banner/bg-pattern2.png' %}" class="bg-img" alt="pattern" />
+  </div>
+</div>
+
+<!-- Main Start -->
+<main class="main-wrap login-page mb-xxl">
+  <img class="logo" src="{% static 'pwa/images/logo/logo.png' %}" alt="logo" />
+  <img class="logo logo-w" src="{% static 'pwa/images/logo/logo-w.png' %}" alt="logo" />
+  <p class="font-sm content-color">Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.</p>
+
+  <!-- Login Section Start -->
+  <section class="login-section p-0">
+    <!-- Login Form Start -->
+    <form action="{% url 'accounts:login' %}" method="post" class="custom-form">
+      {% csrf_token %}
+      <h1 class="font-md title-color fw-600">Login Account</h1>
+
+      <!-- Email Input start -->
+      <div class="input-box">
+        <input type="tel" id="{{ form.mobile_number.id_for_label }}" name="{{ form.mobile_number.name }}" placeholder="Mobile Number" required class="form-control" />
+        <i data-feather="at-sign"></i>
+      </div>
+      <!-- Email Input End -->
+
+      <!-- Password Input start -->
+      <div class="input-box">
+        <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" placeholder="Password" required class="form-control" />
+        <i class="iconly-Hide icli showHidePassword"></i>
+      </div>
+      <!-- Password Input End -->
+
+      <a href="{% url 'accounts:password_reset_request' %}" class="content-color font-sm forgot mb-3">Forgot Password ?</a>
+      <button type="submit" class="btn-solid">Sign in</button>
+      <span class="content-color font-sm d-block text-center fw-600">If you are new, <a href="{% url 'accounts:register' %}" class="underline">Create Now </a></span>
+    </form>
+    <!-- Login Form End -->
+
+    <!-- Social Section Start -->
+    <div class="socila-section">
+      <span>
+        <span class="font-sm fw-600 font-theme"> Or login with </span>
+      </span>
+      <div class="social-wrap">
+        <a href="javascript:void(0)" class="font-md title-color fw-600"><img src="{% static 'pwa/icons/png/phone.png' %}" alt="phone" /> Continue with Phone </a>
+        <a href="https://accounts.google.com/ServiceLogin" class="font-md title-color fw-600"><img src="{% static 'pwa/icons/png/google.png' %}" alt="phone" /> Continue with Google </a>
+      </div>
+    </div>
+    <!-- Social Section End -->
+  </section>
+  <!-- Login Section End -->
+</main>
+<!-- Main End -->
+
+<a href="index.html" class="footer d-block text-center font-md title-color text-decoration-underline">Continue as guest</a>
+{% endblock %}

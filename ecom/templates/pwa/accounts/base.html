@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Html Start -->
+<html lang="en">
+  <!-- Head Start -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Fastkart" />
+    <meta name="keywords" content="Fastkart" />
+    <meta name="author" content="Fastkart" />
+    <link rel="manifest" href="{% static 'pwa/manifest.json' %}" />
+    <title>Fastkart PWA App</title>
+    <link rel="icon" href="{% static 'pwa/images/favicon.png' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{% static 'pwa/images/favicon.png' %}" />
+    <meta name="theme-color" content="#0baf9a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Fastkart" />
+    <meta name="msapplication-TileImage" content="{% static 'pwa/images/favicon.png' %}" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" id="rtl-link" type="text/css" href="{% static 'pwa/css/vendors/bootstrap.css' %}" />
+
+    <!-- Iconly Icon css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'pwa/css/iconly.css' %}" />
+
+    <!-- Style css -->
+    <link rel="stylesheet" id="change-link" type="text/css" href="{% static 'pwa/css/style.css' %}" />
+  </head>
+  <!-- Head End -->
+
+  <!-- Body Start -->
+
+  <body>
+    {% block content %}{% endblock %}
+
+    <!-- ... Rest of the body content ... -->
+
+    {% block extra_js %}{% endblock %}
+
+    <!-- jquery 3.6.0 -->
+    <script src="{% static 'pwa/js/jquery-3.6.0.min.js' %}"></script>
+
+    <!-- Bootstrap Js -->
+    <script src="{% static 'pwa/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Lord Icon -->
+    <script src="{% static 'pwa/js/lord-icon-2.1.0.js' %}"></script>
+
+    <!-- Feather Icon -->
+    <script src="{% static 'pwa/js/feather.min.js' %}"></script>
+
+    <!-- Theme Setting js -->
+    <script src="{% static 'pwa/js/theme-setting.js' %}"></script>
+
+    <!-- Script js -->
+    <script src="{% static 'pwa/js/script.js' %}"></script>
+  </body>
+  <!-- Body End -->
+</html>
+<!-- Html End -->
