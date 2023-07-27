@@ -1,66 +1,63 @@
 {% extends 'backend/base.html' %} {% load static %} {% block content %}
 
-<!-- All Category Table Start -->
+<!-- All Products Table Start -->
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
       <div class="card card-table">
         <div class="card-body">
           <div class="title-header option-title">
-            <h5>All Category</h5>
+            <h5>All Products</h5>
             <form class="d-inline-flex">
-              <a href="{% url 'products:category_new' %}" class="align-items-center btn btn-theme d-flex"> <i data-feather="plus-square"></i>Add New </a>
+              <a href="#" class="align-items-center btn btn-theme d-flex"> <i data-feather="plus-square"></i>Add New </a>
             </form>
           </div>
 
-          <div class="table-responsive category-table">
+          <div class="table-responsive product-table">
             <div>
               <table class="table all-package theme-table" id="table_id">
                 <thead>
                   <tr>
-                    <th>Category Name</th>
-
-                    <th>Category Image</th>
-                    <th>Icon</th>
-                    <th>Slug</th>
-                    <th>Option</th>
+                    <th>Date Created</th>
+                    <th>Product Image</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Options</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  {% for category in categories %}
+                  {% for product in products %}
                   <tr>
-                    <td>{{ category.name }}</td>
+                    <td>{{ product.created_at }}</td>
 
                     <td>
                       <div class="table-image">
-                        {% if category.image %}
-                        <img src="{{ category.image.url }}" class="img-fluid" alt="" />
+                        {% if product.product_image.all.0.image %}
+                        <img src="{{ product.product_image.all.0.image.url }}" class="img-fluid" alt="{{ product.title }}" />
                         {% else %}
                         <p>No image</p>
                         {% endif %}
                       </div>
                     </td>
-                    <td>
-                      <div class="category-icon">
-                        <!-- Add your logic to display icon -->
-                      </div>
-                    </td>
-                    <td>{{ category.slug }}</td>
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>{{ product.regular_price }}</td>
                     <td>
                       <ul>
                         <li>
-                          <a href="{% url 'products:category_detail' category.slug %}">
+                          <a href="#">
                             <i class="ri-eye-line"></i>
                           </a>
                         </li>
                         <li>
-                          <a href="{% url 'products:category_edit' category.slug %}">
+                          <a href="#">
                             <i class="ri-pencil-line"></i>
                           </a>
                         </li>
                         <li>
-                          <a href="#" class="delete-btn" data-category-id="{{ category.id }}" data-category-slug="{{ category.slug }}">
+                          <a href="#" class="delete-btn" data-url="{% url 'products:product_delete' 0 %}" data-product-id="{{ product.id }}">
                             <i class="ri-delete-bin-line"></i>
                           </a>
                         </li>
@@ -77,10 +74,10 @@
     </div>
   </div>
 </div>
-<!-- All Category Table Ends-->
+<!-- All Products Table Ends-->
 <div class="modal fade theme-modal remove-coupon" id="exampleModalToggle" aria-hidden="true" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <form id="deleteForm" method="POST" style="display: none">{% csrf_token %}</form>
+    <form id="deleteForm" method="POST">{% csrf_token %}</form>
 
     <div class="modal-content">
       <div class="modal-header d-block text-center">
@@ -134,9 +131,9 @@
 <script>
   $(document).ready(function () {
     $(document).on("click", ".delete-btn", function () {
-      var categoryId = $(this).data("category-id");
-      var categorySlug = $(this).data("category-slug");
-      var formAction = "{% url 'products:category_delete' 'placeholder' %}".replace("placeholder", categorySlug);
+      var productId = $(this).data("product-id");
+      var formAction = $(this).data("url").replace("0", productId);
+
       $("#deleteForm").attr("action", formAction);
       $("#exampleModalToggle").modal("show");
     });
@@ -146,4 +143,5 @@
     });
   });
 </script>
+
 {% endblock %}

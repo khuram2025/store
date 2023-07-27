@@ -1,0 +1,79 @@
+{% extends 'pwa/home/base.html' %} {% block content %}
+
+<!-- Body Start -->
+<body>
+  <!-- Header Start -->
+  <!-- ... your header code ... -->
+  <!-- Header End -->
+
+  <!-- Main Start -->
+  <main class="main-wrap catagories-wide mb-xxl">
+    <!-- Search Box Start -->
+    {%include 'pwa/widgets/search.html'%}
+    <!-- Search Box End -->
+
+    <!-- Catagories Section Start -->
+    <section class="pb-0">
+      <div class="catagories-wrap">
+        <!-- Catagories Filter Start -->
+
+        <div class="nav" id="catagories-tab" role="tablist" aria-orientation="vertical">
+          {% for category in categories %}
+          <div class="nav-link" id="{{ category.slug }}-tab" data-bs-toggle="pill" data-bs-target="#{{ category.slug }}" role="tab" aria-controls="{{ category.slug }}" aria-selected="false">
+            <div class="content">
+              {% if category.image %}
+              <img src="{{ category.image.url }}" alt="{{ category.name }}" />
+              {% endif %}
+              <span class="font-xs title-color">{{ category.name }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Catagories Filter End -->
+
+        <!-- Catagories Content Start -->
+        <div class="tab-content ratio2_1" id="catagories-tabContent">
+          {% for category in categories %}
+          <div class="tab-pane fade show active" id="{{ category.slug }}" role="tabpanel" aria-labelledby="{{ category.slug }}">
+            <div class="banner-box">
+              <!-- ... your banner box code ... -->
+            </div>
+
+            <div class="row g-3">
+              {% for subcategory in category.get_children %}
+              <!-- Staples Box Start -->
+              <!-- Staples Box Start -->
+              <div class="col-4">
+                <a href="{% url 'products:products_by_category' subcategory.id %}">
+                  <div class="staples-box">
+                    <div>
+                      {% if subcategory.image %}
+                      <img class="img-fluid" src="{{ subcategory.image.url }}" alt="{{ subcategory.name }}" />
+                      {% endif %}
+                    </div>
+                    <h4>{{ subcategory.name }}</h4>
+                  </div>
+                </a>
+              </div>
+              <!-- Staples Box End -->
+
+              <!-- Staples Box End -->
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <!-- Catagories Content End -->
+      </div>
+    </section>
+    <!-- Catagories Section End -->
+  </main>
+  <!-- Main End -->
+
+  <!-- Footer Start -->
+  {%include 'pwa/widgets/footer.html'%}
+  <!-- Footer End -->
+</body>
+
+{%endblock%}

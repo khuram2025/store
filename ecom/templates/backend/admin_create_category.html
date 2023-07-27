@@ -33,7 +33,7 @@
                   <div class="col-sm-3 form-label-title">Parent Category</div>
                   <div class="col-sm-9">
                     <select name="parent" class="form-select">
-                      <option selected>Choose...</option>
+                      <option value="" selected>Choose...</option>
                       {% for category in categories %}
                       <option value="{{ category.id }}">{{ category.name }}</option>
                       {% endfor %}
