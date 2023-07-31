@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'store',
-    'mptt'
+    'mptt',
+
 ]
 AUTH_USER_MODEL = 'accounts.Account'
 AUTHENTICATION_BACKENDS = [

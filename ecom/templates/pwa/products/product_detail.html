@@ -1,0 +1,204 @@
+{% extends 'pwa/home/base.html' %} {% block content %} {% load youtube_tags %}
+
+<body>
+  <!-- Skeleton loader Start -->
+
+  <!-- Skeleton loader End -->
+
+  <!-- Header Start -->
+  <header class="header bg-theme-grey-light">
+    <div class="logo-wrap">
+      <a href="{% url 'products:products_by_category' product.category.id %}"><i class="iconly-Arrow-Left-Square icli"></i></a>
+    </div>
+
+    <div class="avatar-wrap">
+      <a href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#share-grid"><i data-feather="share-2"></i></a>
+    </div>
+  </header>
+  <!-- Header End -->
+
+  <!-- Main Start -->
+  <main class="main-wrap product-page mb-xxl">
+    <!-- Banner Section Start -->
+    <div class="banner-box product-banner">
+      {% if featured_image %}
+      <div class="banner">
+        <img src="{{ featured_image.image.url }}" alt="{{ featured_image.alt_text }}" />
+      </div>
+      {% endif %} {% for image in other_images %}
+      <div class="banner">
+        <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" />
+      </div>
+      {% endfor %}
+    </div>
+    <!-- Banner Section End -->
+
+    <!-- Product Section Section Start -->
+    <section class="product-section">
+      <h1 class="font-md">{{product.title}}</h1>
+      <div class="rating">
+        <i data-feather="star"></i>
+        <i data-feather="star"></i>
+        <i data-feather="star"></i>
+        <i data-feather="star"></i>
+        <i data-feather="star"></i>
+        <span class="font-xs content-color">(150 Ratings)</span>
+      </div>
+
+      <div class="price">
+        <span>Rs.{{product.regular_price}}</span>
+        {% if product.discount_price %}
+        <del>Rs.{{product.discount_price}}</del>
+        <span>{{discount_percentage}}%</span>
+        {% endif %}
+      </div>
+
+      <!-- Select Seller Info Start -->
+      <!-- Seller Info Start -->
+      <!-- Seller Info Start -->
+      <!-- Seller Info Start -->
+      <div class="seller-info p-3 border rounded">
+        <div class="row">
+          <div class="col-3">
+            <img class="rounded-circle" src="{{ seller.image.url }}" alt="{{ seller.name }}" width="80" height="80" />
+          </div>
+          <div class="col-4">
+            <div class="seller-name mb-2">
+              {{ seller.name }}
+              <img src="path-to-verified-icon" alt="Verified" />
+            </div>
+            <div class="seller-location mb-2">{{ seller.location }}Location</div>
+            <div class="seller-duration">Seller since {{ seller.since }}</div>
+          </div>
+          <div class="col-5 text-center">
+            <button class="view-number-button btn btn-outline-success mb-2 w-100" onclick="showNumber()" style="font-size: 14px">Mobile Number</button>
+            <p id="seller-number" style="display: none; font-size: 14px" class="mb-2">{{ seller.mobile_number }}</p>
+            <button class="chat-seller-button btn btn-success w-100" style="font-size: 14px">Chat with Seller</button>
+          </div>
+        </div>
+      </div>
+      <!-- Seller Info End -->
+
+      <script>
+        function showNumber() {
+          document.getElementById("seller-number").style.display = "block";
+        }
+      </script>
+
+      <!-- Select Seller Info End -->
+
+      <!-- Product Detail Start -->
+      <div class="product-detail section-p-t">
+
+       <div class="product-detail-box">
+    <h2 class="title-color">Features and Details</h2>
+    <div class="row collapse show" id="featuresList" style="max-height: 150px; overflow-y: auto;">
+        {% for feature in "Feature 1,Feature 2,Feature 3,Feature 4,Feature 5,Feature 6,Feature 7,Feature 8,Feature 9,Feature 10"|split:"," %}
+        {% if forloop.counter0|divisibleby:2 %}
+        <div class="col-6">
+            <ul>
+                <li>{{ feature }}</li>
+                {% else %}
+                <li>{{ feature }}</li>
+            </ul>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% if not "Feature 1,Feature 2,Feature 3,Feature 4,Feature 5,Feature 6,Feature 7,Feature 8,Feature 9,Feature 10"|split:","|length|divisibleby:2 %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% if "Feature 1,Feature 2,Feature 3,Feature 4,Feature 5,Feature 6,Feature 7,Feature 8,Feature 9,Feature 10"|split:","|length > 6 %}
+<button class="btn btn-link text-success" id="showAllButton" data-bs-toggle="collapse" data-bs-target="#featuresList" aria-expanded="false" aria-controls="featuresList" onclick="changeButtonText()" style="font-size: 14px">Show All</button>
+{% endif %}
+
+<script>
+function changeButtonText() {
+    var collapseElement = document.getElementById('featuresList');
+    var buttonElement = document.getElementById('showAllButton');
+    collapseElement.addEventListener('show.bs.collapse', function () {
+        buttonElement.innerText = "Show Less";
+    });
+    collapseElement.addEventListener('hide.bs.collapse', function () {
+        buttonElement.innerText = "Show All";
+    });
+}
+</script>
+
+
+        <!-- Youtube Video Section should be here  -->
+        {% if product.youtube_link %}
+        <div class="youtube-video">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ product.youtube_link|youtube_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
+        </div>
+        {% endif %}
+        <!-- Youtube Video Section end  -->
+
+        <!-- Product Detail Accordian Start -->
+        <div class="accordion" id="accordionExample">
+          <!-- Accordion Start -->
+         
+          <!-- Accordion End -->
+
+          <!-- Accordion Start -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Product Disclaimer</button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p class="content-color font-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?</p>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion End -->
+
+          <!-- Accordion Start -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Features & details</button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p class="content-color font-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?</p>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion End -->
+        </div>
+        <!-- Product Detail Accordian End -->
+      </div>
+      <!-- Product Detail End -->
+    </section>
+    <!-- Product Section Section End -->
+
+    <!-- Product Review Section Start -->
+    {%include 'pwa/widgets/review.html'%}
+    <!-- Product Review Section End -->
+
+    <!-- Lowest Price 2 Start -->
+    {%include 'pwa/widgets/lowestprice2.html'%}
+    <!-- Lowest Price 2 End -->
+  </main>
+  <!-- Main End -->
+
+  <!-- Footer Start -->
+
+  <!-- Footer End -->
+
+  <!-- Action Share Grid Start -->
+  {%include 'pwa/widgets/share.html'%}
+  <!-- Action Share Grid End -->
+
+  <!-- Offcanvass Select Quantity Filter Start -->
+
+  <!-- Offcanvass Select Quantity Filter End -->
+
+  <!-- Offcanvass Select Time Filter Start -->
+
+  <!-- Offcanvass Select Time Filter End -->
+
+  <!-- Offcanvass Select Time Filter Start -->
+  {%include 'pwa/widgets/allreview.html'%} {%endblock%}
+</body>

@@ -90,7 +90,7 @@ class Product(models.Model):
         max_length=255,
     )
     description = models.TextField(verbose_name=_("description"), help_text=_("Not Required"), blank=True)
-    slug = models.SlugField(max_length=255)
+    slug = models.SlugField(max_length=255, blank=True, null=True)
     regular_price = models.DecimalField(
         verbose_name=_("Regular price"),
         help_text=_("Maximum 999.99"),
@@ -99,7 +99,7 @@ class Product(models.Model):
                 "max_length": _("The price must be between 0 and 999.99."),
             },
         },
-        max_digits=5,
+        max_digits=11,
         decimal_places=2,
     )
     discount_price = models.DecimalField(
@@ -110,8 +110,10 @@ class Product(models.Model):
                 "max_length": _("The price must be between 0 and 999.99."),
             },
         },
-        max_digits=5,
+        max_digits=11,
         decimal_places=2,
+        null=True,
+        blank=True,
     )
     is_active = models.BooleanField(
         verbose_name=_("Product visibility"),
@@ -120,11 +122,20 @@ class Product(models.Model):
     )
     created_at = models.DateTimeField(_("Created at"), auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(_("Updated at"), auto_now=True)
+    slug = models.SlugField(max_length=255, blank=True, null=True)
+    youtube_link = models.URLField(blank=True, null=True)
+    facebook_link = models.URLField(blank=True, null=True)
+    web_link = models.URLField(blank=True, null=True)
 
     class Meta:
         ordering = ("-created_at",)
         verbose_name = _("Product")
         verbose_name_plural = _("Products")
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("store:product_detail", args=[self.slug])

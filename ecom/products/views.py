@@ -79,4 +79,19 @@ def products_by_category(request, category_id):
     subcategories = Category.objects.filter(parent=category)
     products = Product.objects.filter(category__in=[category] + list(subcategories))
 
-    return render(request, 'pwa/products/products_by_category.html', {'products': products})
+    return render(request, 'pwa/products/products_by_category.html', {'products': products, 'category': category, 'subcategories': subcategories})
+
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    images = product.product_image.all()
+    featured_image = None
+    other_images = []
+    for image in images:
+        if image.is_feature:
+            featured_image = image
+        else:
+            other_images.append(image)
+    discount_percentage = 0
+    if product.regular_price > 0 and product.discount_price:
+        discount_percentage = (product.regular_price - product.discount_price) / product.regular_price * 100
+    return render(request, 'pwa/products/product_detail.html', {'product': product, 'featured_image': featured_image, 'other_images': other_images, 'discount_percentage': discount_percentage})
