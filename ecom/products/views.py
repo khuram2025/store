@@ -31,9 +31,7 @@ def add_product_form(request):
                 # Handle image uploads
                 uploaded_images = request.FILES.getlist('product_images')
                 for image_file in uploaded_images:
-                    ProductImage.objects.create(product=product, image=image_file)
-
-                
+                    ProductImage.objects.create(product=product_instance, image=image_file)                
                 return redirect('product_list')
             else:
                 image_formset = ProductImageFormSet(request.POST, request.FILES)
