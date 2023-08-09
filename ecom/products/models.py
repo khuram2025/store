@@ -109,6 +109,9 @@ class Product(models.Model):
     youtube_link = models.URLField(blank=True, null=True)
     facebook_link = models.URLField(blank=True, null=True)
     web_link = models.URLField(blank=True, null=True)
+    seller_name = models.CharField(max_length=100, blank=True, null=True)
+    seller_mobile = models.CharField(max_length=20, blank=True, null=True)
+    seller_city = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         ordering = ("-created_at",)

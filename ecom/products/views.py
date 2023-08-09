@@ -17,26 +17,40 @@ def select_category(request):
         form = CategorySelectForm()
 
     return render(request, 'products/select_category.html', {'form': form, 'categories': categories})
-
 def add_product_form(request):
     selected_category_id = request.session.get('selected_category_id')
     if not selected_category_id:
         return redirect('select_category')
+    
     category = Category.objects.get(id=selected_category_id)
+    
+    initial_data = {}
+    if request.user.is_authenticated:
+        initial_data = {
+            'seller_name': request.user.name,
+            'seller_mobile': request.user.mobile_number,
+            'seller_city': request.user.userprofile.city
+        }
+    
     if request.method == 'POST':
-            form = ProductForm(request.POST, request.FILES, category=category) # Add request.FILES
-            if form.is_valid():
-                product_instance = form.save()
+        form = ProductForm(request.POST, request.FILES, category=category, user=request.user)
 
-                # Handle image uploads
-                uploaded_images = request.FILES.getlist('product_images')
-                for image_file in uploaded_images:
-                    ProductImage.objects.create(product=product_instance, image=image_file)                
-                return redirect('product_list')
-            else:
-                image_formset = ProductImageFormSet(request.POST, request.FILES)
+        if form.is_valid():
+            product_instance = form.save(commit=False)
+            product_instance.seller_name = request.POST.get('seller_name')
+            product_instance.seller_mobile = request.POST.get('seller_mobile')
+            product_instance.seller_city = request.POST.get('seller_city')
+            product_instance = form.save()
+
+            # Handle image uploads
+            uploaded_images = request.FILES.getlist('product_images')
+            for image_file in uploaded_images:
+                ProductImage.objects.create(product=product_instance, image=image_file)
+
+            return redirect('product_list')
+        image_formset = ProductImageFormSet(request.POST, request.FILES)
     else:
-        form = ProductForm(category=category)
+        form = ProductForm(category=category, user=request.user, initial=initial_data) # Pass the initial data here
         image_formset = ProductImageFormSet(queryset=ProductImage.objects.none())
 
     fields_to_exclude = ['title', 'description', 'regular_price', 'discount_price', 'youtube_link', 'facebook_link', 'web_link']

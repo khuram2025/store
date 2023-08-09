@@ -87,19 +87,20 @@
     <div class="seller-info-fields">
         <div class="seller-info-field">
             <label for="seller-name">Name:</label>
-            <input type="text" id="seller-name" name="seller-name" placeholder="Enter your name">
+            <input type="text" id="seller-name" name="seller_name" value="{{ form.initial.seller_name }}" placeholder="Enter your name">
         </div>
         <div class="seller-info-field">
             <label for="seller-mobile">Mobile Number:</label>
-            <input type="tel" id="seller-mobile" name="seller-mobile" placeholder="Enter your mobile number">
+            <input type="tel" id="seller-mobile" name="seller_mobile" value="{{ form.initial.seller_mobile }}" placeholder="Enter your mobile number">
         </div>
         <div class="seller-info-field">
             <label for="seller-city">City:</label>
-            <input type="text" id="seller-city" name="seller-city" placeholder="Enter your city">
+            <input type="text" id="seller-city" name="seller_city" value="{{ form.initial.seller_city }}" placeholder="Enter your city">
         </div>
     </div>
 </div>
 <!-- Seller Info Section End -->
+
 
 
       <div class="submit-box">
