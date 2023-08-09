@@ -1,6 +1,49 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, Product
-from .forms import CategoryForm, ProductForm
+from .models import Category, Product, ProductImage
+from .forms import CategoryForm, ProductForm, CategorySelectForm, ProductImageFormSet 
+
+def select_category(request):
+    categories = Category.objects.all()
+
+    if request.method == 'POST':
+        form = CategorySelectForm(request.POST)
+        if form.is_valid():
+            request.session['selected_category_id'] = form.cleaned_data['category'].id
+
+            return redirect('products:add_product_form')
+        else:
+            print(form.errors)  # Log the form errors
+    else:
+        form = CategorySelectForm()
+
+    return render(request, 'products/select_category.html', {'form': form, 'categories': categories})
+
+def add_product_form(request):
+    selected_category_id = request.session.get('selected_category_id')
+    if not selected_category_id:
+        return redirect('select_category')
+    category = Category.objects.get(id=selected_category_id)
+    if request.method == 'POST':
+            form = ProductForm(request.POST, request.FILES, category=category) # Add request.FILES
+            if form.is_valid():
+                product_instance = form.save()
+
+                # Handle image uploads
+                uploaded_images = request.FILES.getlist('product_images')
+                for image_file in uploaded_images:
+                    ProductImage.objects.create(product=product, image=image_file)
+
+                
+                return redirect('product_list')
+            else:
+                image_formset = ProductImageFormSet(request.POST, request.FILES)
+    else:
+        form = ProductForm(category=category)
+        image_formset = ProductImageFormSet(queryset=ProductImage.objects.none())
+
+    fields_to_exclude = ['title', 'description', 'regular_price', 'discount_price', 'youtube_link', 'facebook_link', 'web_link']
+
+    return render(request, 'products/add_product_form.html', {'form': form, 'fields_to_exclude': fields_to_exclude, 'image_formset': image_formset})
 
 
 def admin_category_list(request):

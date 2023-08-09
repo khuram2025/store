@@ -6,6 +6,22 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 from django.utils.text import slugify
 
+class ProductType(models.Model):
+    """
+    ProductType Table will provide a list of the different types
+    of products that are for sale.
+    """
+
+    name = models.CharField(verbose_name=_("Product Name"), help_text=_("Required"), max_length=255, unique=True)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = _("Product Type")
+        verbose_name_plural = _("Product Types")
+
+    def __str__(self):
+        return self.name
+
 
 class ProductSpecification(models.Model):
     TYPE_CHOICES = [
@@ -14,7 +30,7 @@ class ProductSpecification(models.Model):
         # Add more types as needed
     ]
 
-    
+    product_type = models.ForeignKey(ProductType, on_delete=models.RESTRICT)
     name = models.CharField(verbose_name=_("Name"), help_text=_("Required"), max_length=255)
     type = models.CharField(max_length=10, choices=TYPE_CHOICES, default='text')
 
@@ -62,10 +78,15 @@ class Category(MPTTModel):
     def __str__(self):
         return self.name
 
+
+
+
 class Product(models.Model):
     """
     The Product table contining all product items.
     """
+
+    product_type = models.ForeignKey(ProductType, on_delete=models.RESTRICT)
     category = models.ForeignKey(Category, on_delete=models.RESTRICT)
     title = models.CharField(
         verbose_name=_("title"),
@@ -189,3 +210,10 @@ class ProductImage(models.Model):
     class Meta:
         verbose_name = _("Product Image")
         verbose_name_plural = _("Product Images")
+
+create add product view and template  from above model template should be in wizard form 
+1st he select main category and then subcategory then based that 
+
+based on this model create a add product view where user can add the product once he select catgory form should be apeard with the relevent specifications related to that category along with otherr product  related feilds give me the code for view url and template 
+
+

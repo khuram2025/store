@@ -8,22 +8,17 @@ from .models import (
     ProductImage,
     ProductSpecification,
     ProductSpecificationValue,
-    ProductType,
+ 
 )
 
 admin.site.register(Category, MPTTModelAdmin)
 
 
 class ProductSpecificationInline(admin.TabularInline):
-    model = ProductSpecification
+    model = Category.specifications.through 
 
 
-@admin.register(ProductType)
-class ProductTypeAdmin(admin.ModelAdmin):
-    inlines = [
-        ProductSpecificationInline,
-    ]
-
+  
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
@@ -52,3 +47,11 @@ class ProductSpecificationAdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(ProductSpecification, ProductSpecificationAdmin)
+
+class CategoryAdmin(MPTTModelAdmin):
+    inlines = [
+        ProductSpecificationInline,
+    ]
+
+admin.site.unregister(Category)
+admin.site.register(Category, CategoryAdmin)

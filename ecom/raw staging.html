@@ -1,0 +1,72 @@
+{% extends 'pwa/home/base.html' %} {% block content %}
+<!-- Body Start -->
+<body>
+  <!-- Header Start -->
+  <header class="header">
+    <div class="logo-wrap">
+      <a href="index.html"><i class="iconly-Arrow-Left-Square icli"></i></a>
+      <h1 class="title-color font-md">Edit Profile</h1>
+    </div>
+    <div class="avatar-wrap">
+      <a href="index.html">
+        <i class="iconly-Home icli"></i>
+      </a>
+    </div>
+  </header>
+  <!-- Header End -->
+
+  <!-- Main Start -->
+  <main class="main-wrap setting-page mb-xxl">
+    <div class="user-panel">
+      <div class="media">
+        <div class="avatar-wrap">
+          <a href="javascript:void(0)"> <img src="assets/images/avatar/avatar.jpg" alt="avatar" /></a>
+          <span class="edit"> <i data-feather="edit-3"></i></span>
+        </div>
+        <div class="media-body">
+          <h2 class="title-color">Andrea Joanne</h2>
+          <span class="content-color font-md">andreajoanne@gmail.com</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section Start -->
+    <form class="custom-form">
+      <div class="input-box">
+        <i class="iconly-Profile icli"></i>
+        <input type="text" placeholder="Andrea Joanne" class="form-control" required />
+      </div>
+
+      <div class="input-box">
+        <i data-feather="at-sign"></i>
+        <input type="email" placeholder="andreajoanne@gmail.com" class="form-control" required />
+      </div>
+
+      <div class="input-box">
+        <i class="iconly-Call icli"></i>
+        <input type="number" placeholder="9876543210" class="form-control" required />
+      </div>
+
+      <div class="input-box">
+        <i class="iconly-Calendar icli"></i>
+        <input class="datepicker-here form-control digits" type="text" autocomplete="off" data-language="en" data-multiple-dates-separator=", " placeholder="28/12/1990" />
+      </div>
+
+      <div class="type-password">
+        <label class="font-sm" for="password">Change Password</label>
+        <div class="input-box mb-0">
+          <i class="iconly-Lock icli"></i>
+          <input id="password" type="password" placeholder="Password" autocomplete="off" class="form-control" />
+        </div>
+      </div>
+      <button type="submit" class="btn-solid">Update Settings</button>
+    </form>
+    <!-- Form Section End -->
+  </main>
+  <!-- Main End -->
+
+  <!-- Footer Start -->
+
+  <!-- Footer End -->
+  {%endblock%}
+</body>

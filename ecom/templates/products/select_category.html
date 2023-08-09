@@ -1,0 +1,72 @@
+{% extends 'pwa/home/base.html' %}
+
+{% block content %}
+
+<!-- Body Start -->
+
+<body>
+    <!-- Header Start -->
+    <!-- ... your header code ... -->
+    <!-- Header End -->
+
+    <!-- Main Start -->
+    <main class="main-wrap catagories-wide mb-xxl">
+        <!-- Search Box Start -->
+        {%include 'pwa/widgets/search.html'%}
+        <!-- Search Box End -->
+
+        <!-- Catagories Section Start -->
+        <section class="pb-0">
+            <div class="catagories-wrap">
+
+                <form method="post" id="categoryForm">
+                    {% csrf_token %}
+                    <!-- Catagories Filter Start -->
+                    <div class="nav" id="catagories-tab" role="tablist" aria-orientation="vertical">
+                        {% for category in categories %}
+                        <div class="nav-link" id="{{ category.slug }}-tab" data-bs-toggle="pill" data-bs-target="#{{ category.slug }}" role="tab" aria-controls="{{ category.slug }}" aria-selected="false" data-category-id="{{ category.id }}">
+                            <div class="content">
+                                {% if category.image %}
+                                <img src="{{ category.image.url }}" alt="{{ category.name }}" />
+                                {% endif %}
+                                <span class="font-xs title-color">{{ category.name }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Catagories Filter End -->
+
+                    <!-- ... rest of your code ... -->
+
+                    <input type="hidden" name="category" id="selectedCategory">
+                    <input type="submit" style="display: none;" id="submitCategoryForm">
+                </form>
+
+                <!-- ... rest of your code ... -->
+
+        </section>
+        <!-- Catagories Section End -->
+    </main>
+    <!-- Main End -->
+
+    <!-- Footer Start -->
+
+    <!-- Footer End -->
+
+    <script>
+        // Add event listener to category click
+        const categoryLinks = document.querySelectorAll('.nav-link');
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', function() {
+    const categoryId = this.getAttribute('data-category-id');
+    console.log("Selected Category ID:", categoryId);  // Log the selected category ID
+    document.getElementById('selectedCategory').value = categoryId;
+    document.getElementById('submitCategoryForm').click();
+});
+
+
+        });
+    </script>
+</body>
+
+{%endblock%}

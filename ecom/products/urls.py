@@ -1,5 +1,8 @@
 from django.urls import path
+
+
 from . import views
+
 
 app_name = 'products'
 
@@ -20,6 +23,9 @@ urlpatterns = [
 
     path('category/<int:category_id>/products/', views.products_by_category, name='products_by_category'),
     path('products/<slug:slug>/', views.product_detail, name='product_detail'),
-
+    path('select_category/', views.select_category, name='select_category'),
+    path('add_product_form/', views.add_product_form, name='add_product_form'),
+ 
     
 ]
+

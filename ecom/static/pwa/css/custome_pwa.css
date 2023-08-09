@@ -1,0 +1,137 @@
+.image-upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px dashed #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.upload-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-image-label {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+p {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.images-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.image-preview-item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.image-preview-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-options {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.dots-menu {
+  position: relative;
+}
+
+.dots-menu:hover .options-dropdown {
+  display: block;
+}
+
+.options-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 10;
+}
+.three-dots-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="16"><circle cx="2" cy="2" r="2"/><circle cx="2" cy="8" r="2"/><circle cx="2" cy="14" r="2"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.options-dropdown {
+  top: 20px; /* Adjusted for the positioning of the dropdown */
+  /* Other styles remain unchanged */
+}
+
+.option-btn {
+  display: block;
+  padding: 5px 10px;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.option-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Seller Section */
+.seller-info-section {
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.seller-info-header {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.seller-info-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.seller-info-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.seller-info-field label {
+  width: 150px;
+  font-weight: bold;
+}
+
+.seller-info-field input {
+  flex-grow: 1;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Seller Section End */
