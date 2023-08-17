@@ -48,26 +48,45 @@
       <!-- Catagories Content Start -->
       <div class="tab-pane fade show active" id="catagories1" role="tabpanel" aria-labelledby="catagories1-tab">
         {% for product in products %}
-        <div class="product-list media">
-          {% with product.product_image.all as images %} {% if images %} {% with images|first as image %}
-          <a href="{% url 'products:product_detail' product.slug %}"><img src="{{ image.image.url }}" alt="{{ product.title }}" /></a>
-          {% endwith %} {% else %}
-          <a href="{% url 'products:product_detail' product.slug %}"><img src="default_image_url_here" alt="{{ product.title }}" /></a>
-          {% endif %} {% endwith %}
-          <div class="media-body">
-            <a href="{% url 'products:product_detail' product.slug %}" class="font-sm"> {{ product.title }} </a>
-            <span class="title-color font-sm">
-              {% if product.discount_price %}
-              <span style="text-decoration: line-through">Rs.{{ product.regular_price }}</span>
-              {% else %} Rs.{{ product.regular_price }} {% endif %} {% if product.discount_price %}
-              <span class="badges-round bg-theme-theme font-xs">Rs. {{ product.discount_price }}</span>
-              {% endif %}
-            </span>
+        <div class="product-list">
+          <!-- Product Image -->
+          <div class="product-image">
+            {% with product.product_image.all as images %} {% if images %} {% with images|first as image %}
+            <a href="{% url 'products:product_detail' product.slug %}">
+              <img src="{{ image.image.url }}" alt="{{ product.title }}" class="product-img" />
+            </a>
+            {% endwith %} {% else %}
+            <a href="{% url 'products:product_detail' product.slug %}">
+              <img src="default_image_url_here" alt="{{ product.title }}" class="product-img" />
+            </a>
+            {% endif %} {% endwith %}
+          </div>
 
-            <div class="plus-minus">
-              <i class="sub" data-feather="minus"></i>
-              <input type="number" value="1" min="0" max="10" />
-              <i class="add" data-feather="plus"></i>
+          <!-- Product Details -->
+          <div class="product-details">
+            <!-- Product Title -->
+            <a href="{% url 'products:product_detail' product.slug %}" class="product-title">{{ product.title }}</a>
+
+            <!-- Product Location -->
+            <div class="product-location">
+              <i class="iconly-Location icli location-icon"></i>
+              <span>{{ product.city }}</span>
+            </div>
+
+            <!-- Added Date -->
+            <div class="product-date">Added since {{ product.date_joined|date:"d M, Y" }}</div>
+
+            <!-- Price and Contact Buttons -->
+            <div class="price-contact">
+              <span class="product-price">
+                {% if product.discount_price %}
+                <span class="discounted-price">Rs.{{ product.regular_price }}</span>
+                Rs. {{ product.discount_price }} {% else %} Rs.{{ product.regular_price }} {% endif %}
+              </span>
+            </div>
+            <div class="contacts-box">
+              <span class="contact-btn"><i class="fa-brands fa-whatsapp" style="color: #fafafa"></i> WhatsApp </span>
+              <span class="contact-btn">Call </span>
             </div>
           </div>
         </div>

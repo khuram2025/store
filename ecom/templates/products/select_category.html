@@ -1,72 +1,63 @@
-{% extends 'pwa/home/base.html' %}
-
-{% block content %}
-
+{% extends 'pwa/home/base.html' %} {% block content %}
 <!-- Body Start -->
-
 <body>
-    <!-- Header Start -->
-    <!-- ... your header code ... -->
-    <!-- Header End -->
+  <!-- Header Start -->
+  <header class="header">
+    <div class="logo-wrap">
+      <a href="index.html"><i class="iconly-Arrow-Left-Square icli"></i></a>
+      <h1 class="title-color font-md">Select Category</h1>
+    </div>
+    <div class="avatar-wrap">
+      <a href="index.html">
+        <i class="iconly-Home icli"></i>
+      </a>
+    </div>
+  </header>
+  <!-- Header End -->
 
-    <!-- Main Start -->
-    <main class="main-wrap catagories-wide mb-xxl">
-        <!-- Search Box Start -->
-        {%include 'pwa/widgets/search.html'%}
-        <!-- Search Box End -->
+  <!-- Main Start -->
+  <main class="main-wrap catagories-wide mb-xxl">
+    <!-- Search Box Start -->
 
-        <!-- Catagories Section Start -->
-        <section class="pb-0">
-            <div class="catagories-wrap">
+    <!-- Search Box End -->
 
-                <form method="post" id="categoryForm">
-                    {% csrf_token %}
-                    <!-- Catagories Filter Start -->
-                    <div class="nav" id="catagories-tab" role="tablist" aria-orientation="vertical">
-                        {% for category in categories %}
-                        <div class="nav-link" id="{{ category.slug }}-tab" data-bs-toggle="pill" data-bs-target="#{{ category.slug }}" role="tab" aria-controls="{{ category.slug }}" aria-selected="false" data-category-id="{{ category.id }}">
-                            <div class="content">
-                                {% if category.image %}
-                                <img src="{{ category.image.url }}" alt="{{ category.name }}" />
-                                {% endif %}
-                                <span class="font-xs title-color">{{ category.name }}</span>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <!-- Catagories Filter End -->
+    <!-- Catagories Section Start -->
+    <section class="payment-section">
+      <form method="post" id="categoryForm">
+        {% csrf_token %}
+        <!-- Category Accordion Start -->
+        <div class="accordion" id="categoryAccordion">
+          {% for category in categories %}
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading{{ category.id }}">
+              <button class="accordion-button font-md title-color collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ category.id }}" aria-expanded="false" aria-controls="collapse{{ category.id }}">{{ category.name }}</button>
+            </h2>
+            <div id="collapse{{ category.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ category.id }}" data-bs-parent="#categoryAccordion">
+              <div class="accordion-body">
+                <div class="row">
+                  {% for subcategory in category.get_children %}
+                  <div class="input-box col-6">
+                    <input type="radio" name="category" id="subcategory{{ subcategory.id }}" value="{{ subcategory.id }}" />
+                    <label class="form-check-label" for="subcategory{{ subcategory.id }}"> {{ subcategory.name }} </label>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <!-- Category Accordion End -->
+      </form>
+    </section>
+    <!-- Catagories Section End -->
+  </main>
+  <!-- Main End -->
 
-                    <!-- ... rest of your code ... -->
-
-                    <input type="hidden" name="category" id="selectedCategory">
-                    <input type="submit" style="display: none;" id="submitCategoryForm">
-                </form>
-
-                <!-- ... rest of your code ... -->
-
-        </section>
-        <!-- Catagories Section End -->
-    </main>
-    <!-- Main End -->
-
-    <!-- Footer Start -->
-
-    <!-- Footer End -->
-
-    <script>
-        // Add event listener to category click
-        const categoryLinks = document.querySelectorAll('.nav-link');
-        categoryLinks.forEach(link => {
-            link.addEventListener('click', function() {
-    const categoryId = this.getAttribute('data-category-id');
-    console.log("Selected Category ID:", categoryId);  // Log the selected category ID
-    document.getElementById('selectedCategory').value = categoryId;
-    document.getElementById('submitCategoryForm').click();
-});
-
-
-        });
-    </script>
+  <!-- Footer Start -->
+  <footer class="footer-wrap footer-button">
+    <a href="javascript:void(0)" onclick="document.getElementById('categoryForm').submit();" class="font-md">Select Category >>> Next</a>
+  </footer>
+  <!-- Footer End -->
 </body>
-
-{%endblock%}
+{% endblock %}

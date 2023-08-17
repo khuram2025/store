@@ -16,7 +16,12 @@ from .forms import LoginForm
 from .models import UserProfile
 
 def accounts(request):
-    return render(request, 'pwa/accounts/account.html',)
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        return render(request, 'pwa/accounts/account.html', {'profile': profile})
+    else:
+        # Handle the case when the user is not authenticated. Maybe redirect to login page?
+        return redirect('accounts:login')
 
 
 def register(request):
@@ -49,8 +54,6 @@ def login_view(request):
 
     return render(request, 'pwa/accounts/login.html', {'form': form})
 
-
-
 def profile_detail_view(request, pk):
     try:
         profile = UserProfile.objects.get(pk=pk)
@@ -70,6 +73,7 @@ def edit_profile(request, pk):
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
+            profile.profile_image = form.cleaned_data['profile_image']
             form.save()
             return redirect('accounts:profile-detail', pk=profile.user.pk)
 
@@ -82,7 +86,7 @@ def edit_profile(request, pk):
     'form': form,
     'profile': profile  # Add this line
 }
-    return render(request, 'accounts/edit_profile.html', context)
+    return render(request, 'pwa/accounts/edit_profile.html', context)
 
 
 from django.shortcuts import render, redirect

@@ -2,11 +2,11 @@
 <!-- Header Start -->
 <header class="header">
   <div class="logo-wrap">
-    <a href="index.html"><i class="iconly-Arrow-Left-Square icli"></i></a>
+    <a href="{%url 'home:home' %}"><i class="iconly-Arrow-Left-Square icli"></i></a>
     <h1 class="title-color font-md">Accounts</h1>
   </div>
   <div class="avatar-wrap">
-    <a href="index.html">
+    <a href="{%url 'home:home' %}">
       <i class="iconly-Home icli"></i>
     </a>
   </div>
@@ -17,15 +17,20 @@
 <main class="main-wrap account-page mb-xxl">
   <div class="account-wrap section-b-t">
     <div class="user-panel">
-      <div class="media">
+    <div class="media">
+        {% if profile.profile_image %}
+        <a href="account.html"> <img src="{{ profile.profile_image.url }}" alt="avatar" /></a>
+        {% else %}
         <a href="account.html"> <img src="{% static 'pwa/images/avatar/avatar.jpg' %}" alt="avatar" /></a>
+        {% endif %}
         <div class="media-body">
-          <a href="account.html" class="title-color">Andrea Joanne
-            <span class="content-color font-sm">andreajoanne@gmail.com</span>
-          </a>
+            <a href="account.html" class="title-color">{{ profile.user.name }}
+                <span class="content-color font-sm">{{ profile.user.mobile_number }}</span>
+            </a>
         </div>
-      </div>
     </div>
+</div>
+
 
     <!-- Navigation Start -->
     <ul class="navigation">
@@ -78,13 +83,14 @@
       </li>
 
       <li>
-        <a href="setting.html" class="nav-link title-color font-sm">
+        <a href="{% url 'accounts:edit_profile' pk=profile.user.pk %}" class="nav-link title-color font-sm">
           <i class="iconly-Setting icli"></i>
           <span>Settings</span>
         </a>
-        <a href="setting.html" class="arrow"><i data-feather="chevron-right"></i></a>
+        <a href="{% url 'accounts:edit_profile' pk=profile.user.pk %}" class="arrow">
+          <i data-feather="chevron-right"></i>
+        </a>
       </li>
-
       <li>
         <a href="javascript:void(0)" class="nav-link title-color font-sm">
           <i class="iconly-Graph icli"></i>

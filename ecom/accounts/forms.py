@@ -12,10 +12,10 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 from django import forms
 from .models import UserProfile
-
 class UserProfileForm(forms.ModelForm):
-    mobile_number = forms.CharField(max_length=15, required=False)
+    mobile_number = forms.CharField(max_length=15, required=True)  # Make it required as it exists during signup
     name = forms.CharField(max_length=30, required=False)
+    email = forms.EmailField(max_length=254, required=False)  # Make email optional
 
     class Meta:
         model = UserProfile

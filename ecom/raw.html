@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Category List</title>
+    <style>
+     
+    </style>
+  </head>
+  <body>
+    <div class="category" onclick="toggleSubcategories(this)">
+      <div class="category-header"><i></i> Category 1</div>
+      <div class="sub-categories">
+        <div>Sub-category 1.1</div>
+        <div>Sub-category 1.2</div>
+      </div>
+    </div>
+    <div class="category" onclick="toggleSubcategories(this)">
+      <div class="category-header"><i></i> Category 2</div>
+      <div class="sub-categories">
+        <div>Sub-category 2.1</div>
+        <div>Sub-category 2.2</div>
+      </div>
+    </div>
+    <!-- Add more categories as needed -->
+    <script>
+      function toggleSubcategories(category) {
+        const subcategories = category.querySelector(".sub-categories");
+        if (subcategories.style.display === "none") {
+          subcategories.style.display = "block";
+        } else {
+          subcategories.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

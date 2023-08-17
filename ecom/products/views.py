@@ -3,20 +3,22 @@ from .models import Category, Product, ProductImage
 from .forms import CategoryForm, ProductForm, CategorySelectForm, ProductImageFormSet 
 
 def select_category(request):
-    categories = Category.objects.all()
+    # Fetch only parent categories (categories without a parent)
+    parent_categories = Category.objects.filter(parent__isnull=True)
 
     if request.method == 'POST':
         form = CategorySelectForm(request.POST)
         if form.is_valid():
             request.session['selected_category_id'] = form.cleaned_data['category'].id
-
             return redirect('products:add_product_form')
         else:
             print(form.errors)  # Log the form errors
     else:
         form = CategorySelectForm()
 
-    return render(request, 'products/select_category.html', {'form': form, 'categories': categories})
+    return render(request, 'products/select_category.html', {'form': form, 'categories': parent_categories})
+
+
 def add_product_form(request):
     selected_category_id = request.session.get('selected_category_id')
     if not selected_category_id:
