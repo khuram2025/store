@@ -85,8 +85,8 @@
               </span>
             </div>
             <div class="contacts-box">
-              <span class="contact-btn"><i class="fa-brands fa-whatsapp" style="color: #fafafa"></i> WhatsApp </span>
-              <span class="contact-btn">Call </span>
+              <span class="contact-btn" data-bs-toggle="modal" data-bs-target="#contactModal"> <i class="fa-brands fa-whatsapp" style="color: #fafafa"></i> WhatsApp </span>
+              <span class="contact-btn" data-bs-toggle="modal" data-bs-target="#contactModal">Call </span>
             </div>
           </div>
         </div>
@@ -101,6 +101,25 @@
     <!-- Tab Content End -->
   </main>
   <!-- Main End -->
+  <!-- Contact Modal -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Contact Seller</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Mobile Number: <strong>123-456-7890</strong></p>
+          <!-- You can replace the above placeholder number with the actual number -->
+          <!-- Add more details if needed -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer Start -->
 
