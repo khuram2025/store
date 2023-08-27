@@ -58,6 +58,12 @@ class Category(MPTTModel):
     def get_children(self):
         return self.get_descendants().filter(level=self.level+1)
     
+    def get_root_category(self):
+        return self.get_ancestors(include_self=True).first()
+
+
+
+    
 
     def __str__(self):
         return self.name

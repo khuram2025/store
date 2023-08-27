@@ -22,3 +22,12 @@ def split(value, key):
         return value.split(key)[1]
     except:
         return value
+@register.filter(name='split_name')
+def split_name(name):
+    words = name.split()
+    if len(words) > 1:
+        first_word = words[0].capitalize()
+        last_word = words[-1].capitalize()
+        return f"{first_word} {last_word}"
+    else:
+        return words[0].capitalize() if words else ""

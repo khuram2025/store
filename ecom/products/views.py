@@ -1,6 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product, ProductImage, ProductSpecificationValue
 from .forms import CategoryForm, ProductForm, CategorySelectForm, ProductImageFormSet 
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+from django.utils import timezone
+
+
 
 def select_category(request):
     # Fetch only parent categories (categories without a parent)
@@ -79,6 +84,7 @@ def category_detail(request, slug):
     products_by_subcategory = {}
     for subcategory in subcategories:
         products_by_subcategory[subcategory] = Product.objects.filter(category=subcategory, is_active=True)
+  
 
     context = {
         'main_category': main_category,
@@ -153,6 +159,8 @@ def products_by_category(request, category_id):
 
     return render(request, 'pwa/products/products_by_category.html', {'products': products, 'category': category, 'subcategories': subcategories})
 
+
+
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
     images = product.product_image.all()
@@ -169,11 +177,26 @@ def product_detail(request, slug):
     
     # Fetching product specifications
     product_specifications = ProductSpecificationValue.objects.filter(product=product)
-    
+    now = timezone.now()
+
+    if product.updated_at > product.created_at:
+        # If the product was updated after it was created, use the updated_at date
+        delta = relativedelta(now, product.updated_at)
+        action = "Updated"
+    else:
+        delta = relativedelta(now, product.created_at)
+        action = "Posted"
+
+    months = delta.months
+    days = delta.days
+
     return render(request, 'suha/product_detail.html', {
         'product': product,
         'featured_image': featured_image,
         'other_images': other_images,
         'discount_percentage': discount_percentage,
-        'product_specifications': product_specifications  # Passing the specifications to the template
+        'product_specifications': product_specifications,  # Passing the specifications to the template
+        'months': months,
+        'days': days,
+        'action':action
     })
