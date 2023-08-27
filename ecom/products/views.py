@@ -163,6 +163,8 @@ def products_by_category(request, category_id):
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
+    product.views += 1
+    product.save()
     images = product.product_image.all()
     featured_image = None
     other_images = []

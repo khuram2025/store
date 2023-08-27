@@ -80,7 +80,7 @@
       <!-- Featured Image -->
       {% if product.youtube_link %}
       <div class="single-product-slide">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ product.youtube_link|youtube_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="productVideo" width="100%" height="315" src="https://www.youtube.com/embed/{{ product.youtube_link|youtube_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       {% endif %} {% if featured_image %}
       <div class="single-product-slide" style="background-image: url('{{ featured_image.image.url }}')"></div>
@@ -232,23 +232,29 @@
   </div>
 </div>
 <script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player("productVideo", {
-      events: {
-        onStateChange: onPlayerStateChange,
-      },
-    });
-  }
 
-  function onPlayerStateChange(event) {
-    var owl = $(".product-slides").data("owl.carousel");
-    if (event.data == YT.PlayerState.PLAYING) {
-      owl.stop();
-    } else {
-      owl.play();
+<script>
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+      console.log("YouTube Iframe API is ready."); // Debugging line
+      player = new YT.Player('productVideo', {
+     videoId: '{{ product.youtube_link|youtube_id }}',
+     events: {
+       'onStateChange': onPlayerStateChange
+     }
+  });
+    function onPlayerStateChange(event) {
+      console.log("Player state changed to: ", event.data); // Debugging line
+      var owl = $(".product-slides").data("owl.carousel");
+      if (event.data == YT.PlayerState.PLAYING) {
+        console.log("Attempting to stop the owl carousel."); // Debugging line
+        owl.stop();
+      } else {
+        console.log("Attempting to play the owl carousel."); // Debugging line
+        owl.play();
+      }
     }
-  }
 </script>
+
 {%endblock%}
