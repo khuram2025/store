@@ -1,0 +1,252 @@
+/* Register CSS */
+
+.login-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    @include bg-gradient;
+    z-index: 10;
+    overflow-y: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    overflow-x: hidden;
+
+    .success-check {
+        color: $white;
+        margin: 0 auto;
+
+        i {
+            font-size: 3rem;
+        }
+    }
+}
+
+.register-form {
+    position: relative;
+    z-index: 1;
+
+    .form-group {
+        position: relative;
+        z-index: 1;
+    }
+
+    span {
+        color: $white;
+        font-size: 14px;
+        display: block;
+    }
+
+    form>.form-group>label {
+        position: absolute;
+        text-align: center;
+        z-index: 100;
+        border-radius: 50%;
+        left: 0;
+        font-size: 16px;
+        margin-bottom: 0;
+        color: $white;
+        top: 28px;
+    }
+
+    .form-control {
+        border-radius: 0;
+        border: 0;
+        color: $white;
+        font-size: 13px;
+        background-color: transparent;
+        height: 40px;
+        padding: 8px 8px 8px 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+        &::placeholder {
+            color: $white;
+            opacity: 0.5;
+        }
+    }
+
+    .progress {
+        width: 100%;
+        height: 5px;
+        margin-top: 1rem;
+        border-radius: 6px;
+        margin-bottom: 0.25rem;
+    }
+
+    .password-score {
+        font-size: 14px;
+        font-weight: 600;
+        color: $white;
+        display: flex;
+
+        span {
+            font-size: 18px;
+            margin-left: 1rem;
+        }
+    }
+
+    .password-recommendation {
+        ul {
+            padding-left: 0;
+            font-size: 14px;
+            color: $white;
+        }
+    }
+
+    #password-recommendation-heading {
+        font-weight: 600;
+        color: $white;
+        font-size: 16px;
+    }
+}
+
+.view-as-guest {
+    .btn {
+        transition-duration: 500ms;
+        color: $white;
+        opacity: 0.75;
+        text-transform: capitalize;
+        font-size: 14px;
+
+        &:hover,
+        &:focus {
+            opacity: 1;
+        }
+    }
+}
+
+.login-meta-data {
+    a {
+        color: $white;
+
+        &:hover,
+        &:focus {
+            color: $warning;
+        }
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.7);
+
+        a {
+            color: $white;
+
+            &:hover,
+            &:focus {
+                color: $warning;
+            }
+        }
+    }
+}
+
+.go-back-btn {
+    transition-duration: 400ms;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background-color: $danger;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    color: $white;
+    line-height: 42px;
+    z-index: 10;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: $primary;
+        color: $white;
+    }
+}
+
+.otp-form {
+    position: relative;
+    z-index: 1;
+
+    .form-control {
+        padding: 0.25rem 0.75rem;
+        height: 50px;
+        border: 0;
+        font-size: 14px;
+        background-color: rgba(255, 255, 255, 0.25);
+        font-weight: 500;
+        color: $white;
+        border-radius: 6px;
+
+        &::placeholder {
+            color: $white;
+            opacity: 0.5;
+        }
+    }
+
+    .nice-select {
+        height: 50px;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.25);
+        font-weight: 600;
+        color: $white;
+        border-radius: 6px;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        flex: 0 0 80px;
+        max-width: 80px;
+        width: 80px;
+        line-height: 50px;
+
+        .list {
+            background-color: $primary;
+
+            .option:hover,
+            .option.focus,
+            .option.selected.focus {
+                background-color: $danger;
+            }
+        }
+
+        &:focus {
+            box-shadow: none !important;
+        }
+
+        &::after {
+            border-bottom-color: $white;
+            border-right-color: $white;
+        }
+    }
+
+    input {
+        &.form-control {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+    }
+}
+
+.otp-verify-form {
+    position: relative;
+    z-index: 1;
+
+    .form-control {
+        transition-duration: 500ms;
+        flex: 0 0 50px;
+        max-width: 50px;
+        width: 50px;
+        padding: 6px;
+        border: 0;
+        text-align: center;
+        font-size: 1.25rem;
+        background-color: rgba(255, 255, 255, 0.25);
+        color: $white;
+        font-weight: 500;
+
+        &::placeholder {
+            color: $white;
+            opacity: 0.5;
+        }
+
+        &:focus {
+            background-color: $warning;
+            color: $heading;
+        }
+    }
+}

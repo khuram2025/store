@@ -1,0 +1,56 @@
+{% extends 'suha/base.html' %} {% load static %} {% block content %}
+<!-- Preloader-->
+<div class="preloader" id="preloader">
+  <div class="spinner-grow text-secondary" role="status">
+    <div class="sr-only"></div>
+  </div>
+</div>
+
+<div class="login-wrapper d-flex align-items-center justify-content-center text-center">
+  <!-- Background Shape-->
+  <div class="background-shape"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-8">
+        <img class="big-logo" src="{% static 'images/inner-page/log-in.png' %}" alt="" />
+        <!-- Register Form-->
+        <div class="register-form mt-5">
+          <form action="{% url 'accounts:login' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group text-start mb-4">
+              <span>Mobile Number</span>
+              <label for="{{ form.mobile_number.id_for_label }}"><i class="fa-solid fa-user"></i></label>
+              <input class="form-control" id="{{ form.mobile_number.id_for_label }}" name="{{ form.mobile_number.name }}" type="tel" placeholder="Mobile Number" />
+            </div>
+            <div class="form-group text-start mb-4">
+              <span>Password</span>
+              <label for="{{ form.password.id_for_label }}"><i class="fa-solid fa-key"></i></label>
+              <input class="form-control" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" type="password" placeholder="Password" />
+            </div>
+            <div class="forgot-box">
+              <div class="form-check ps-0 m-0 remember-box">
+                <input class="checkbox_animated check-box" type="checkbox" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">Remember me</label>
+              </div>
+              <a href="{% url 'accounts:password_reset_request' %}" class="forgot-password d-block mt-3 mb-1">Forgot Password?</a>
+            </div>
+            <button class="btn btn-warning btn-lg w-100" type="submit">Log In</button>
+          </form>
+        </div>
+        <!-- Login Meta-->
+        <div class="login-meta-data">
+          <p class="mb-0">Don't have an account? <a class="mx-1" href="{% url 'accounts:register' %}">Sign Up</a></p>
+        </div>
+        <!-- View As Guest-->
+        <div class="view-as-guest mt-3">
+          <!-- You can modify the href value for the guest view as per your requirements -->
+          <a class="btn" href="{% url 'home:home' %}">View as Guest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- All JavaScript Files-->
+
+{% endblock %}

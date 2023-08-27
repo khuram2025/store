@@ -1,0 +1,64 @@
+.offcanvas.offcanvas-start.suha-offcanvas-wrap(tabindex="-1" id="suhaOffcanvas" aria-labelledby="suhaOffcanvasLabel")
+    // Close button
+    button.btn-close.btn-close-white(type="button" data-bs-dismiss="offcanvas" aria-label="Close")
+
+    // Offcanvas body
+    .offcanvas-body
+        // Sidenav Profile
+        .sidenav-profile
+            .user-profile
+                img(src="img/bg-img/9.jpg", alt="")
+            .user-info
+                h5.user-name.mb-1.text-white Suha Sarah
+                p.available-balance.text-white Available points 
+                    span.counter 499
+
+        // Sidenav Nav
+        ul.sidenav-nav.ps-0
+            li
+                a(href="profile.html")
+                    i.fa-solid.fa-user
+                    | My Profile
+            li
+                a(href="notifications.html")
+                    i.fa-solid.fa-bell.lni-tada-effect
+                    | Notifications
+                    span.ms-1.badge.badge-warning 3
+
+            li.suha-dropdown-menu
+                a(href="#")
+                    i.fa-solid.fa-store
+                    | Shop Pages
+                ul
+                    li
+                        a(href="shop-grid.html") Shop Grid
+                    li
+                        a(href="shop-list.html") Shop List
+                    li
+                        a(href="single-product.html") Product Details
+                    li
+                        a(href="featured-products.html") Featured Products
+                    li
+                        a(href="flash-sale.html") Flash Sale
+            li
+                a(href="pages.html")
+                    i.fa-solid.fa-file-code
+                    | All Pages
+
+            li.suha-dropdown-menu
+                a(href="wishlist-grid.html")
+                    i.fa-solid.fa-heart
+                    | My Wishlist
+                ul
+                    li
+                        a(href="wishlist-grid.html") Wishlist Grid
+                    li
+                        a(href="wishlist-list.html") Wishlist List
+            li
+                a(href="settings.html")
+                    i.fa-solid.fa-sliders
+                    | Settings
+            li
+                a(href="intro.html")
+                    i.fa-solid.fa-toggle-off
+                    | Sign Out

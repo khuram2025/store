@@ -1,0 +1,394 @@
+doctype html
+html(lang="en")
+    head
+        include inc/head.pug
+
+    body
+        include inc/loader.pug
+
+        // Header Area
+        .header-area#headerArea
+            .container.h-100.d-flex.align-items-center.justify-content-between.rtl-flex-d-row-r
+                // Back Button
+                .back-button.me-2
+                    a(href="shop-grid.html")
+                        i.fa-solid.fa-arrow-left-long
+
+                // Page Title
+                .page-heading
+                    h6.mb-0 Vendor Shop
+
+                // Navbar Toggler
+                .suha-navbar-toggler.ms-2(data-bs-toggle="offcanvas", data-bs-target="#suhaOffcanvas", aria-controls="suhaOffcanvas")
+                    div
+                        span
+                        span
+                        span
+
+        include inc/sidenav.pug
+
+        .page-content-wrapper.pb-3
+            // Vendor Details Wrap 
+            .vendor-details-wrap.bg-img.bg-overlay.py-4(style="background-image: url('img/bg-img/15.jpg')")
+                .container
+                    .d-flex.align-items-start
+                        // Vendor Profile
+                        .vendor-profile.shadow.me-3.mt-1
+                            figure.m-0
+                                img(src="img/core-img/logo-small.png", alt="")
+
+                        // Vendor Info
+                        .vendor-info
+                            h5.vendor-title.text-white Suha
+                            p.mb-1.text-white
+                                i.fa-solid.fa-location-dot.me-1
+                                | Dhaka, Bangladesh
+                            .ratings.lh-1
+                                i.fa-solid.fa-star
+                                i.fa-solid.fa-star
+                                i.fa-solid.fa-star
+                                i.fa-solid.fa-star
+                                i.fa-solid.fa-star
+                                span.text-white (99% Positive Seller)
+                    
+                    // Vendor Basic Info
+                    .vendor-basic-info.d-flex.align-items-center.justify-content-between.mt-4
+                        .single-basic-info
+                            .icon
+                                i.fa-solid.fa-shield
+                            span Trusted Seller
+
+                        .single-basic-info
+                            .icon
+                                i.fa-solid.fa-bag-shopping
+                            span 100+ Items
+
+                        .single-basic-info
+                            .icon
+                                i.fa-solid.fa-ship
+                            span 98% Ship On Time
+
+            // Vendor Tabs 
+            .vendor-tabs
+                .container
+                    ul.nav.nav-tabs.mb-3#vendorTab(role="tablist")
+                        li.nav-item(role="presentation")
+                            button.nav-link#home-tab(data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true") About
+
+                        li.nav-item(role="presentation")
+                            button.nav-link.active#products-tab(data-bs-toggle="tab" data-bs-target="#products" type="button" role="tab" aria-controls="products" aria-selected="false") Products
+
+                        li.nav-item(role="presentation")
+                            button.nav-link#reviews-tab(data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false") Ratings &amp; Reviews
+
+            .tab-content#vendorTabContent
+                .tab-pane.fade#home(role="tabpanel" aria-labelledby="home-tab")
+                    .container
+                        .card
+                            .card-body.about-content-wrap.dir-rtl
+                                h6 Welcome to our shop gallery.
+                                p A versatile e-commerce shop template. It is very nicely designed with modern features &amp; coded with the latest technology.
+
+                                ul.mb-3.ps-3
+                                    li
+                                        i.fa-solid.fa-circle-check.me-1
+                                        | Trusted Seller
+                                    li
+                                        i.fa-solid.fa-circle-check.me-1
+                                        | 100+ Items
+                                    li
+                                        i.fa-solid.fa-circle-check.me-1
+                                        | 98% Ship On Time
+
+                                p It nicely views on all devices with smartphones, tablets, laptops &amp; desktops.
+
+                                img.mb-3.rounded(src="img/bg-img/16.jpg", alt="")
+
+                                p A versatile e-commerce shop template. It is very nicely designed with modern features &amp; coded with the latest technology.
+                                p It nicely views on all devices with smartphones, tablets, laptops &amp; desktops.
+
+                                h6 Need Help?
+                                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus sint reiciendis minima iusto ex beatae.
+
+                                .contact-btn-wrap.text-center
+                                    p.mb-2 For more information, submit a request.
+                                    a.btn.btn-primary.w-100(href="contact.html")
+                                        i.fa-solid.fa-life-ring.me-2
+                                        | Submit A Query
+
+                .tab-pane.fade.show.active#products(role="tabpanel" aria-labelledby="products-tab")
+                    .container
+                        .row.g-2.rtl-flex-d-row-r
+                            // Product Card 
+                            .col-6.col-md-4
+                                .card.product-card
+                                    .card-body
+                                        // Badge
+                                        span.badge.rounded-pill.badge-warning Sale
+                                        // Wishlist Button
+                                        a.wishlist-btn(href="#")
+                                            i.fa-solid.fa-heart                        
+                                        // Thumbnail 
+                                        a.product-thumbnail.d-block(href="single-product.html")
+                                            img.mb-2(src="img/product/11.png", alt="")
+                                            // Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss 
+                                            ul.offer-countdown-timer.d-flex.align-items-center.shadow-sm(data-countdown="2023/12/31 23:59:59")
+                                                li
+                                                    span.days 0
+                                                    | d
+                                                li
+                                                    span.hours 0
+                                                    | h
+                                                li
+                                                    span.minutes 0
+                                                    | m
+                                                li
+                                                    span.seconds 0
+                                                    | s
+                                        // Product Title 
+                                        a.product-title(href="single-product.html") Beach Cap
+                                        // Product Price 
+                                        p.sale-price $13
+                                            span $42
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                        // Add to Cart 
+                                        a.btn.btn-success.btn-sm(href="#")
+                                            i.fa-solid.fa-plus
+
+                            // Product Card 
+                            .col-6.col-md-4
+                                .card.product-card
+                                    .card-body
+                                        // Badge
+                                        span.badge.rounded-pill.badge-success New
+                                        // Wishlist Button
+                                        a.wishlist-btn(href="#")
+                                            i.fa-solid.fa-heart                        
+                                        // Thumbnail 
+                                        a.product-thumbnail.d-block(href="single-product.html")
+                                            img.mb-2(src="img/product/5.png", alt="")
+                                        // Product Title 
+                                        a.product-title(href="single-product.html") Wooden Sofa
+                                        // Product Price 
+                                        p.sale-price $74
+                                            span $99
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                        // Add to Cart 
+                                        a.btn.btn-success.btn-sm(href="#")
+                                            i.fa-solid.fa-plus
+
+                            // Product Card 
+                            .col-6.col-md-4
+                                .card.product-card
+                                    .card-body
+                                        // Badge
+                                        span.badge.rounded-pill.badge-success Sale
+                                        // Wishlist Button
+                                        a.wishlist-btn(href="#")
+                                            i.fa-solid.fa-heart                        
+                                        // Thumbnail 
+                                        a.product-thumbnail.d-block(href="single-product.html")
+                                            img.mb-2(src="img/product/6.png", alt="")
+                                        // Product Title 
+                                        a.product-title(href="single-product.html") Roof Lamp
+                                        // Product Price 
+                                        p.sale-price $99
+                                            span $113
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                        // Add to Cart 
+                                        a.btn.btn-success.btn-sm(href="#")
+                                            i.fa-solid.fa-plus
+
+                            // Product Card 
+                            .col-6.col-md-4
+                                .card.product-card
+                                    .card-body
+                                        // Badge
+                                        span.badge.rounded-pill.badge-danger -18%
+                                        // Wishlist Button
+                                        a.wishlist-btn(href="#")
+                                            i.fa-solid.fa-heart                        
+                                        // Thumbnail 
+                                        a.product-thumbnail.d-block(href="single-product.html")
+                                            img.mb-2(src="img/product/9.png", alt="")
+                                            // Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss 
+                                            ul.offer-countdown-timer.d-flex.align-items-center.shadow-sm(data-countdown="2022/12/23 00:21:29")
+                                                li
+                                                    span.days 0
+                                                    | d
+                                                li
+                                                    span.hours 0
+                                                    | h
+                                                li
+                                                    span.minutes 0
+                                                    | m
+                                                li
+                                                    span.seconds 0
+                                                    | s
+                                        // Product Title 
+                                        a.product-title(href="single-product.html") Sneaker Shoes
+                                        // Product Price 
+                                        p.sale-price $87
+                                            span $92
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                        // Add to Cart 
+                                        a.btn.btn-success.btn-sm(href="#")
+                                            i.fa-solid.fa-plus
+
+                            // Product Card 
+                            .col-6.col-md-4
+                                .card.product-card
+                                    .card-body
+                                        // Badge
+                                        span.badge.rounded-pill.badge-danger -11%
+                                        // Wishlist Button
+                                        a.wishlist-btn(href="#")
+                                            i.fa-solid.fa-heart
+                                        // Thumbnail 
+                                        a.product-thumbnail.d-block(href="single-product.html")
+                                            img.mb-2(src="img/product/8.png", alt="")
+                                        // Product Title 
+                                        a.product-title(href="single-product.html") Wooden Chair
+                                        // Product Price 
+                                        p.sale-price $21
+                                            span $25
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                        // Add to Cart 
+                                        a.btn.btn-success.btn-sm(href="#")
+                                            i.fa-solid.fa-plus
+
+                            // Product Card 
+                            .col-6.col-md-4
+                                .card.product-card
+                                    .card-body
+                                        // Badge
+                                        span.badge.rounded-pill.badge-warning On Sale
+                                        // Wishlist Button
+                                        a.wishlist-btn(href="#")
+                                            i.fa-solid.fa-heart
+                                        // Thumbnail 
+                                        a.product-thumbnail.d-block(href="single-product.html")
+                                            img.mb-2(src="img/product/4.png", alt="")
+                                        // Product Title 
+                                        a.product-title(href="single-product.html") Polo Shirts
+                                        // Product Price 
+                                        p.sale-price $38
+                                            span $41
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                            i.fa-solid.fa-star
+                                        // Add to Cart 
+                                        a.btn.btn-success.btn-sm(href="#")
+                                            i.fa-solid.fa-plus
+
+                .tab-pane.fade#reviews(role="tabpanel" aria-labelledby="reviews-tab")
+                    // Rating & Review Wrapper 
+                    .rating-and-review-wrapper.bg-white.py-3.mb-3.dir-rtl
+                        .container
+                            .rating-review-content
+                                ul.ps-0
+                                    // Single User Review 
+                                    li.single-user-review.d-flex
+                                        .user-thumbnail
+                                            img(src="img/bg-img/7.jpg", alt="")
+                                        .rating-comment
+                                            .rating
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                            p.comment.mb-0 Very good product. It's just amazing!
+                                            span.name-date Designing World 12 Dec 2022
+                                            a.review-image.mt-2.border.rounded(href="img/product/3.png")
+                                                img.rounded-3(src="img/product/3.png", alt="")
+
+                                    // Single User Review 
+                                    li.single-user-review.d-flex
+                                        .user-thumbnail
+                                            img(src="img/bg-img/8.jpg", alt="")
+                                        .rating-comment
+                                            .rating
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                            p.comment.mb-0 Very excellent product. Love it.
+                                            span.name-date Designing World 8 Dec 2022
+                                            a.review-image.mt-2.border.rounded(href="img/product/4.png")
+                                                img.rounded-3(src="img/product/4.png", alt="")
+                                            a.review-image.mt-2.border.rounded(href="img/product/6.png")
+                                                img.rounded-3(src="img/product/6.png", alt="")
+
+                                    // Single User Review 
+                                    li.single-user-review.d-flex
+                                        .user-thumbnail
+                                            img(src="img/bg-img/9.jpg", alt="")
+                                        .rating-comment
+                                            .rating
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                                i.fa-solid.fa-star
+                                            p.comment.mb-0 What a nice product it is. I am looking it's.
+                                            span.name-date Designing World 28 Nov 2022
+
+                    // Ratings Submit Form
+                    .ratings-submit-form.bg-white.py-3.dir-rtl
+                        .container
+                            h6 Submit A Review
+                            form(action="#" method="")
+                                .stars.mb-3
+                                    input(type="radio" name="star" class="star-1" id="star1")
+                                    label.star-1(for="star1")
+                                    input(type="radio" name="star" class="star-2" id="star2")
+                                    label.star-2(for="star2")
+                                    input(type="radio" name="star" class="star-3" id="star3")
+                                    label.star-3(for="star3")
+                                    input(type="radio" name="star" class="star-4" id="star4")
+                                    label.star-4(for="star4")
+                                    input(type="radio" name="star" class="star-5" id="star5")
+                                    label.star-5(for="star5")
+                                    span
+                                textarea.form-control.mb-3#comments(name="comment", cols="30", rows="10", data-max-length="200", placeholder="Write your review...")
+                                button.btn.btn-primary(type="submit") Save Review
+
+        include inc/footer-nav.pug
+
+        include inc/footer.pug

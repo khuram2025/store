@@ -1,0 +1,154 @@
+doctype html
+html(lang="en")
+    head
+        include inc/head.pug
+
+    body
+        include inc/loader.pug
+
+        // Header Area
+        .header-area#headerArea
+            .container.h-100.d-flex.align-items-center.justify-content-between.rtl-flex-d-row-r
+                // Back Button
+                .back-button.me-2
+                    a(href="home.html")
+                        i.fa-solid.fa-arrow-left-long
+
+                // Page Title
+                .page-heading
+                    h6.mb-0 Wishlist
+
+                // Navbar Toggler
+                .suha-navbar-toggler.ms-2(data-bs-toggle="offcanvas", data-bs-target="#suhaOffcanvas", aria-controls="suhaOffcanvas")
+                    div
+                        span
+                        span
+                        span
+
+        include inc/sidenav.pug
+
+        .page-content-wrapper
+            .py-3
+                .container
+                    .section-heading.d-flex.align-items-center.justify-content-between.rtl-flex-d-row-r
+                        h6 Wishlist Items (4)
+
+                        // Layout Options
+                        .layout-options
+                            a(href="wishlist-grid.html")
+                                i.fa-solid.fa-border-all
+
+                            a.active(href="wishlist-list.html")
+                                i.fa-solid.fa-list-ul
+
+                    .row.g-2
+                        .col-12
+                            .horizontal-product-card
+                                .d-flex.align-items-center
+                                    .product-thumbnail-side
+                                        // Thumbnail 
+                                        a.product-thumbnail.shadow-sm.d-block(href="single-product.html")
+                                            img(src="img/product/18.png", alt="")
+                                    .product-description
+                                        // Delete  
+                                        a.delete-btn(href="#")
+                                            i.fa-solid.fa-trash-can
+                                        // Product Title 
+                                        a.product-title.d-block(href="single-product.html") Nescafe Coffee Jar
+                                        // Price 
+                                        p.sale-price
+                                            i.fa-solid.fa-dollar-sign
+                                            | $64
+                                            span $89
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            | 4.88 
+                                            span.ms-1 (39 review)
+
+                        // Weekly Product Card 
+                        .col-12
+                            .horizontal-product-card
+                                .d-flex.align-items-center
+                                    .product-thumbnail-side
+                                        // Thumbnail 
+                                        a.product-thumbnail.shadow-sm.d-block(href="single-product.html")
+                                            img(src="img/product/7.png", alt="")
+                                    .product-description
+                                        // Delete  
+                                        a.delete-btn(href="#")
+                                            i.fa-solid.fa-trash-can
+                                        // Product Title 
+                                        a.product-title.d-block(href="single-product.html") Modern Office Chair
+                                        // Price 
+                                        p.sale-price
+                                            i.fa-solid.fa-dollar-sign
+                                            | $99
+                                            span $159
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            | 4.82 
+                                            span.ms-1 (125 review)
+
+                        // Weekly Product Card 
+                        .col-12
+                            .horizontal-product-card
+                                .d-flex.align-items-center
+                                    .product-thumbnail-side
+                                        // Thumbnail 
+                                        a.product-thumbnail.shadow-sm.d-block(href="single-product.html")
+                                            img(src="img/product/12.png", alt="")
+                                    .product-description
+                                        // Delete  
+                                        a.delete-btn(href="#")
+                                            i.fa-solid.fa-trash-can
+                                        // Product Title 
+                                        a.product-title.d-block(href="single-product.html") Beach Sunglasses
+                                        // Price 
+                                        p.sale-price
+                                            i.fa-solid.fa-dollar-sign
+                                            | $24
+                                            span $32
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            | 4.79 
+                                            span.ms-1 (63 review)
+
+                        // Weekly Product Card 
+                        .col-12
+                            .horizontal-product-card
+                                .d-flex.align-items-center
+                                    .product-thumbnail-side
+                                        // Thumbnail 
+                                        a.product-thumbnail.shadow-sm.d-block(href="single-product.html")
+                                            img(src="img/product/17.png", alt="")
+                                    .product-description
+                                        // Delete  
+                                        a.delete-btn(href="#")
+                                            i.fa-solid.fa-trash-can
+                                        // Product Title 
+                                        a.product-title.d-block(href="single-product.html") Meow Mix Cat Food
+                                        // Price 
+                                        p.sale-price
+                                            i.fa-solid.fa-dollar-sign
+                                            | $11.49
+                                            span $13
+                                        // Rating 
+                                        .product-rating
+                                            i.fa-solid.fa-star
+                                            | 4.78 
+                                            span.ms-1 (7 review)
+
+
+                        // Select All Products
+                        .col-12
+                            .select-all-products-btn.mt-2
+                                a.btn.btn-success.w-100(href="#")
+                                    i.fa-solid.fa-cart-shopping.me-2
+                                    | Add all items to cart
+
+        include inc/footer-nav.pug
+
+        include inc/footer.pug

@@ -1,0 +1,514 @@
+/* Night Mode */
+
+[theme-color="dark"] {
+    background-color: $dark-primary;
+
+    body,
+    #preloader {
+        background-color: $dark-primary;
+    }
+
+    a,
+    a:hover,
+    a:focus,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $white;
+    }
+
+    .header-area {
+        background-color: $dark-primary;
+        box-shadow: 0 3px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    .card {
+        border-color: $dark-sec;
+        background-color: $dark-sec;
+    }
+
+    .border,
+    .border-start,
+    .border-right,
+    .border-bottom,
+    .border-top,
+    .list-group-item {
+        border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .user-profile-icon a,
+    .suha-navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .cart-icon-wrap a span {
+        background-color: $primary;
+    }
+
+    .dropdown-menu {
+        background-color: $dark-tertiary;
+
+        .dropdown-item:hover,
+        .dropdown-item:focus {
+            color: $white !important;
+        }
+    }
+
+    .bg-white {
+        background-color: $dark-tertiary !important;
+    }
+
+    .btn-warning,
+    .btn-info {
+        color: $heading;
+
+        &:hover,
+        &:focus {
+            color: $heading;
+        }
+    }
+
+    .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    .catagory-card {
+
+        &.active,
+        &:hover,
+        &:focus {
+            background-color: $dark-tertiary;
+
+            span {
+                color: $warning;
+            }
+        }
+    }
+
+    .flash-sale-card {
+        .product-title {
+            color: $white;
+        }
+
+        .sale-price {
+            color: $white;
+        }
+    }
+
+    .product-card {
+        .product-title {
+            color: $white;
+
+            &:hover,
+            &:focus {
+                color: $warning;
+            }
+        }
+
+        .sale-price {
+            color: $white;
+        }
+    }
+
+    .horizontal-product-card {
+        .product-thumbnail-side {
+            .product-thumbnail {
+                background-color: $dark-tertiary;
+            }
+        }
+
+        .product-description {
+            .product-title {
+                color: $white;
+            }
+
+            .wishlist-btn {
+                color: #ea4c62;
+                background-color: $dark-sec;
+            }
+
+            .delete-btn {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .sale-price {
+                color: $white;
+            }
+        }
+    }
+
+    .featured-product-card {
+        .product-description {
+            .product-title {
+                color: $white;
+
+                &:hover,
+                &:focus {
+                    color: $warning;
+                }
+            }
+
+            .sale-price {
+                color: $white;
+            }
+        }
+    }
+
+    .page-nav li a {
+        background-color: $dark-tertiary;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            color: $warning;
+        }
+    }
+
+    .back-button a {
+        color: $white;
+
+        &:hover,
+        &:focus {
+            color: $warning;
+        }
+    }
+
+    .suha-filter-offcanvas-wrap {
+        background-color: $dark-tertiary;
+    }
+
+    .form-check-input {
+        background-color: $dark-primary;
+        border: 1px solid rgba(0, 0, 0, .25);
+    }
+
+    .form-control {
+        border-color: rgba(255, 255, 255, 0.1);
+        background-color: $dark-sec;
+        color: $white;
+    }
+
+    .product-catagories a {
+        background-color: $dark-tertiary;
+        color: $white;
+    }
+
+    .nice-select {
+        background-color: $dark-tertiary;
+        border-color: rgba(255, 255, 255, 0.1);
+
+        .list {
+            background-color: $dark-tertiary;
+
+            .option:hover,
+            .option.focus,
+            .option.selected.focus {
+                background-color: rgba(255, 255, 255, 0.2);
+                color: $white;
+            }
+        }
+    }
+
+    .product-title-meta-data {
+        background-color: $dark-sec !important;
+
+        &::after {
+            background-image: url(img/core-img/curve2.png);
+        }
+    }
+
+    .p-wishlist-share a {
+        color: $danger;
+    }
+
+    .progress {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .cart-form .quantity-button-handler {
+        background-color: $dark-sec;
+        border-color: rgba(255, 255, 255, 0.1);
+        color: $white;
+    }
+
+    .product-slide-wrapper .video-btn {
+        background-color: $dark-primary;
+        color: $danger;
+    }
+
+    .product-slides .owl-prev,
+    .product-slides .owl-next {
+        background-color: $dark-primary !important;
+        color: $white;
+    }
+
+    .single-user-review {
+        border-bottom-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .layout-options a {
+        background-color: $dark-tertiary;
+
+        &.active,
+        &:hover,
+        &:focus {
+            color: $white;
+            background-color: $danger;
+        }
+    }
+
+    .single-order-status.active .order-text h6 {
+        color: $white;
+    }
+
+    .my-order-wrapper .card::after {
+        border-right-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .vendor-tabs {
+        background-color: $dark-tertiary;
+
+        .nav-item.show .nav-link,
+        .nav-link.active {
+            color: $warning;
+            background-color: transparent;
+        }
+    }
+
+    .register-form .form-control {
+        background-color: transparent;
+    }
+
+    .cart-table {
+        table {
+            tbody tr {
+                background-color: transparent;
+                border-bottom-color: rgba(255, 255, 255, 0.1);
+            }
+
+            a {
+                color: $white;
+
+                &:hover,
+                &:focus {
+                    color: $warning;
+                }
+            }
+        }
+
+        img {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+
+    .language-area-wrapper,
+    .shipping-method-choose {
+
+        input[type="radio"]:checked~label,
+        input[type="radio"]:checked~label {
+            color: $white;
+            background-color: rgba(255, 255, 255, 0.103);
+        }
+
+        input[type="radio"]:checked~.check,
+        input[type="radio"]:checked~.check {
+            border-color: $warning;
+        }
+
+        input[type="radio"]:checked~.check::before,
+        input[type="radio"]:checked~.check::before {
+            background: $warning;
+        }
+    }
+
+    .single-payment-method a {
+        background-color: $dark-tertiary;
+
+        &.active h6,
+        &:hover h6,
+        &:focus h6 {
+            color: $warning;
+        }
+    }
+
+    .list-group-item {
+        background-color: $dark-sec;
+        color: $white;
+    }
+
+    .pay-credit-card-form .form-control {
+        box-shadow: none !important;
+    }
+
+    .otp-form {
+        input.form-control {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .nice-select {
+            background-color: rgba(255, 255, 255, 0.25);
+            color: $white;
+        }
+    }
+
+    .otp-verify-form {
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+    }
+
+    .user-info-card {
+        background-color: $warning;
+        border-color: $warning;
+
+        h5 {
+            color: $heading;
+        }
+    }
+
+    .user-data-card {
+        .title {
+            color: $white;
+        }
+    
+        .password-score {
+            color: $white;
+        }
+    }
+
+    .blog-card {
+        .post-content {
+            background-color: $dark-tertiary;
+
+            .post-title {
+                color: $white;
+
+                &:hover,
+                &:focus {
+                    color: $warning;
+                }
+            }
+
+            .bg-shapes {
+
+                .circle1,
+                .circle2,
+                .circle3,
+                .circle4,
+                .circle5 {
+                    border-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+    }
+
+    .blog-details-post-thumbnail .post-bookmark {
+        background-color: $dark-sec;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            background-color: $danger;
+            color: $white;
+        }
+    }
+
+    .agent-message-content {
+        .agent-message-text {
+            p {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .writing-mode {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+
+    .type-text-form {
+        .form-control {
+            border: 0 !important;
+            border-radius: 0;
+        }
+
+        .file-upload {
+            border-color: rgba(255, 255, 255, 0.1);
+
+            i {
+                background-color: $dark-tertiary;
+                color: $white;
+            }
+        }
+
+        button[type="submit"] {
+            background-color: transparent;
+            color: $warning;
+        }
+    }
+
+    .notification-area .list-group-item.readed {
+        background-color: $dark-tertiary;
+    }
+
+    .faq-search-form button {
+        color: $warning;
+    }
+
+    .accordian-card .accordian-header button {
+        color: $warning;
+
+        &.collapsed>span {
+            color: $white;
+        }
+    }
+
+    .preview-iframe-wrapper {
+        .preview-hero-area {
+            background-image: none;
+            background-color: $dark-primary;
+
+            &::after {
+                background-image: url(img/core-img/curve2.png);
+            }
+        }
+
+        .preview-content-wrapper {
+            .demo-title {
+                span {
+                    color: $warning;
+                }
+            }
+        }
+
+        .qr-code-wrapper {
+            background-color: $dark-sec;
+        }
+
+        .features-area {
+            background-color: #242644 !important;
+
+            ul li {
+                &.active {
+                    color: $white;
+
+                    &::before {
+                        color: $warning;
+                    }
+                }
+            }
+        }
+    }
+
+    .preview-footer-area {
+        .footer-nav a {
+
+            &:hover,
+            &:focus {
+                color: $warning;
+            }
+        }
+    }
+}

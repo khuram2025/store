@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, Product, ProductImage
+from .models import Category, Product, ProductImage, ProductSpecificationValue
 from .forms import CategoryForm, ProductForm, CategorySelectForm, ProductImageFormSet 
 
 def select_category(request):
@@ -70,8 +70,23 @@ def category_list(request):
 
 
 def category_detail(request, slug):
-    category = get_object_or_404(Category, slug=slug)
-    return render(request, 'categories/category_detail.html', {'category': category})
+    main_category = get_object_or_404(Category, slug=slug, parent__isnull=True, is_active=True)
+
+    # Fetch the direct children (subcategories) of this main category
+    subcategories = main_category.get_children()
+
+    # Dictionary to hold products for each subcategory
+    products_by_subcategory = {}
+    for subcategory in subcategories:
+        products_by_subcategory[subcategory] = Product.objects.filter(category=subcategory, is_active=True)
+
+    context = {
+        'main_category': main_category,
+        'subcategories': subcategories,
+        'products_by_subcategory': products_by_subcategory,
+    }
+    
+    return render(request, 'suha/category.html', context)
 
 def category_new(request):
     categories = Category.objects.all()
@@ -151,4 +166,14 @@ def product_detail(request, slug):
     discount_percentage = 0
     if product.regular_price > 0 and product.discount_price:
         discount_percentage = (product.regular_price - product.discount_price) / product.regular_price * 100
-    return render(request, 'pwa/products/product_detail.html', {'product': product, 'featured_image': featured_image, 'other_images': other_images, 'discount_percentage': discount_percentage})
+    
+    # Fetching product specifications
+    product_specifications = ProductSpecificationValue.objects.filter(product=product)
+    
+    return render(request, 'suha/product_detail.html', {
+        'product': product,
+        'featured_image': featured_image,
+        'other_images': other_images,
+        'discount_percentage': discount_percentage,
+        'product_specifications': product_specifications  # Passing the specifications to the template
+    })

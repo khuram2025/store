@@ -1,0 +1,51 @@
+/* Flash Sale CSS */
+
+.flash-sale-card {
+    box-shadow: none !important;
+
+    .card-body {
+        padding: .75rem;
+    }
+
+    img {
+        margin-bottom: .75rem;
+    }
+
+    .product-title {
+        transition-duration: 500ms;
+        color: $heading;
+        font-size: 14px;
+        display: block;
+        line-height: 1.2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-bottom: 0.25rem;
+    }
+
+    .sale-price {
+        font-size: 1rem;
+        color: $heading;
+        margin-bottom: 0.25rem;
+        line-height: 1;
+    }
+
+    .real-price {
+        display: inline-block;
+        margin-left: 4px;
+        font-size: 14px;
+        text-decoration: line-through;
+        color: $text;
+    }
+
+    .progress {
+        height: 0.25rem;
+    }
+
+    .progress-title {
+        color: $text;
+        font-size: 12px;
+        display: block;
+        font-weight: 400;
+    }
+}

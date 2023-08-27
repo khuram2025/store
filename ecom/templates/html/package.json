@@ -1,0 +1,34 @@
+{
+  "name": "suha-multipurpose-ecommerce-mobile-html-template",
+  "version": "3.0.1",
+  "description": "Suha - Multipurpose Ecommerce Mobile HTML Template",
+  "homepage": "https://themeforest.net/item/suha-multipurpose-ecommerce-mobile-template/25294162",
+  "main": "active.js",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "author": "designing-world",
+  "license": "SEE LICENSE IN <licence>",
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "browserslist": "^4.20.3",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "postcss": "^8.4.14",
+    "sass": "^1.52.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "counterup": "^1.0.2",
+    "jquery": "^2.2.4",
+    "jquery-countdown": "^2.2.0",
+    "jquery-nice-select": "^1.1.0",
+    "jquery-waypoints": "^2.0.5",
+    "jquery.easing": "^1.4.1",
+    "magnific-popup": "^1.1.0",
+    "owl.carousel": "^2.3.4",
+    "wowjs": "^1.1.3"
+  }
+}

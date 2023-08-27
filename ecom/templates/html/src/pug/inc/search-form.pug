@@ -1,0 +1,24 @@
+// Search Form
+.container
+    .search-form.pt-3.rtl-flex-d-row-r
+        form(action="#" method="")
+            input.form-control(type="search" placeholder="Search in Suha")
+            button(type="submit")
+                i.fa-solid.fa-magnifying-glass
+        
+        // Alternative Search Options 
+        .alternative-search-options
+            .dropdown
+                a.btn.btn-danger.dropdown-toggle#altSearchOption(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")
+                    i.fa-solid.fa-sliders
+                
+                // Dropdown Menu 
+                ul.dropdown-menu.dropdown-menu-end(aria-labelledby="altSearchOption")
+                    li
+                        a.dropdown-item(href="#")
+                            i.fa-solid.fa-microphone 
+                            | Voice Search
+                    li
+                        a.dropdown-item(href="#")
+                            i.fa-solid.fa-image 
+                            | Image Search

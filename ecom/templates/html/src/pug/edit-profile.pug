@@ -1,0 +1,86 @@
+doctype html
+html(lang="en")
+    head
+        include inc/head.pug
+
+    body
+        include inc/loader.pug
+
+        // Header Area
+        .header-area#headerArea
+            .container.h-100.d-flex.align-items-center.justify-content-between.rtl-flex-d-row-r
+                // Back Button
+                .back-button.me-2.me-2
+                    a(href="profile.html")
+                        i.fa-solid.fa-arrow-left-long
+
+                // Page Title
+                .page-heading
+                    h6.mb-0 Edit Profile
+
+                // Navbar Toggler
+                .suha-navbar-toggler.ms-2(data-bs-toggle="offcanvas", data-bs-target="#suhaOffcanvas", aria-controls="suhaOffcanvas")
+                    div
+                        span
+                        span
+                        span
+
+        include inc/sidenav.pug
+
+        .page-content-wrapper
+            .container
+                // Profile Wrapper
+                .profile-wrapper-area.py-3
+                    // User Information
+                    .card.user-info-card
+                        .card-body.p-4.d-flex.align-items-center
+                            .user-profile.me-3
+                                img(src="img/bg-img/9.jpg", alt="")
+                                .change-user-thumb
+                                    form
+                                        input.form-control-file(type="file")
+                                        button
+                                            i.fa-solid.fa-pen
+                            .user-info
+                                p.mb-0.text-dark @designing-world
+                                h5.mb-0 Suha Jannat
+
+                    // User Meta Data
+                    .card.user-data-card
+                        .card-body
+                            form(action="" method="")
+                                .mb-3
+                                    .title.mb-2
+                                        i.fa-solid.fa-at
+                                        span Username
+                                    input.form-control(type="text" value="designing-world")
+
+                                .mb-3
+                                    .title.mb-2
+                                        i.fa-solid.fa-user
+                                        span Full Name
+                                    input.form-control(type="text" value="Suha Jannat" disabled)
+
+                                .mb-3
+                                    .title.mb-2
+                                        i.fa-solid.fa-phone
+                                        span Phone
+                                    input.form-control(type="text" value="+880 000 111 222")
+
+                                .mb-3
+                                    .title.mb-2
+                                        i.fa-solid.fa-envelope
+                                        span Email Address
+                                    input.form-control(type="email" value="care@example.com")
+
+                                .mb-3
+                                    .title.mb-2
+                                        i.fa-solid.fa-location-arrow
+                                        span Shipping Address
+                                    input.form-control(type="text" value="28/C Green Road, BD")
+
+                                button.btn.btn-success.w-100(type="submit") Save All Changes
+
+        include inc/footer-nav.pug
+
+        include inc/footer.pug

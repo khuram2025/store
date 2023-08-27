@@ -1,0 +1,295 @@
+doctype html
+html(lang="en")
+    head
+        include inc/head.pug
+
+    body
+        include inc/loader.pug
+
+        // Header Area
+        .header-area#headerArea
+            .container.h-100.d-flex.align-items-center.justify-content-between.rtl-flex-d-row-r
+                // Back Button
+                .back-button.me-2
+                    a(href="home.html")
+                        i.fa-solid.fa-arrow-left-long
+
+                // Page Title
+                .page-heading
+                    h6.mb-0 Blog Grid
+
+                // Navbar Toggler
+                .suha-navbar-toggler.ms-2(data-bs-toggle="offcanvas", data-bs-target="#suhaOffcanvas", aria-controls="suhaOffcanvas")
+                    div
+                        span
+                        span
+                        span
+
+        include inc/sidenav.pug
+
+        .page-content-wrapper
+
+            // Blog Wrapper
+            .blog-wrapper.py-3
+                .container
+                    .section-heading.d-flex.align-items-center.justify-content-between.rtl-flex-d-row-r
+                        h6 Blog Grid
+
+                        // Layout Options
+                        .layout-options
+                            a.active(href="blog-grid.html")
+                                i.fa-solid.fa-border-all
+
+                            a(href="blog-list.html")
+                                i.fa-solid.fa-list-ul
+
+                    .row.g-2.rtl-flex-d-row-r
+
+                        // Single Blog Card
+                        .col-6.col-md-4.col-lg-3
+                            .card.blog-card
+                                // Post Image
+                                .post-img
+                                    img(src="img/bg-img/18.jpg", alt="")
+                                // Post Bookmark
+                                a.post-bookmark(href="#")
+                                    i.fa-solid.fa-bookmark
+
+                                // Post Content
+                                .post-content
+                                    .bg-shapes
+                                        .circle1
+                                        .circle2
+                                        .circle3
+                                        .circle4
+                                    // Post Catagory
+                                    a.post-catagory.d-block(href="#") Review
+                                    // Post Title
+                                    a.post-title(href="blog-details.html") The 5 best reviews in Suha
+                                    // Post Meta
+                                    .post-meta.d-flex.align-items-center.justify-content-between.flex-wrap.mb-2
+                                        a(href="#")
+                                            i.fa-solid.fa-user
+                                            | Yasin
+                                        span
+                                            i.fa-solid.fa-clock
+                                            | 2 min
+                                    // Read More Button
+                                    a(href="blog-details.html").btn.btn-primary.btn-sm.read-more-btn Read More
+
+                        // Single Blog Card
+                        .col-6.col-md-4.col-lg-3
+                            .card.blog-card
+                                // Post Image
+                                .post-img
+                                    img(src="img/bg-img/19.jpg", alt="")
+                                // Post Bookmark
+                                a.post-bookmark(href="#")
+                                    i.fa-solid.fa-bookmark
+
+                                // Post Content
+                                .post-content
+                                    .bg-shapes
+                                        .circle1
+                                        .circle2
+                                        .circle3
+                                        .circle4
+                                    // Post Catagory
+                                    a.post-catagory.d-block(href="#") Shopping
+                                    // Post Title
+                                    a.post-title(href="blog-details.html") The best deals of this week
+                                    // Post Meta
+                                    .post-meta.d-flex.align-items-center.justify-content-between.flex-wrap.mb-2
+                                        a(href="#")
+                                            i.fa-solid.fa-user
+                                            | Admin
+                                        span
+                                            i.fa-solid.fa-clock
+                                            | 8 min
+                                    // Read More Button
+                                    a(href="blog-details.html").btn.btn-success.btn-sm.read-more-btn Read for $0.7
+
+                        // Single Blog Card
+                        .col-6.col-md-4.col-lg-3
+                            .card.blog-card
+                                // Post Image
+                                .post-img
+                                    img(src="img/bg-img/20.jpg", alt="")
+                                // Post Bookmark
+                                a.post-bookmark(href="#")
+                                    i.fa-solid.fa-bookmark
+
+                                // Post Content
+                                .post-content
+                                    .bg-shapes
+                                        .circle1
+                                        .circle2
+                                        .circle3
+                                        .circle4
+                                    // Post Catagory
+                                    a.post-catagory.d-block(href="#") Tips
+                                    // Post Title
+                                    a.post-title(href="blog-details.html") 5 tips for buy original products
+                                    // Post Meta
+                                    .post-meta.d-flex.align-items-center.justify-content-between.flex-wrap.mb-2
+                                        a(href="#")
+                                            i.fa-solid.fa-user
+                                            | Niloy
+                                        span
+                                            i.fa-solid.fa-clock
+                                            | 5 min
+                                    // Read More Button
+                                    a(href="blog-details.html").btn.btn-success.btn-sm.read-more-btn Read for $0.9
+
+                        // Single Blog Card
+                        .col-6.col-md-4.col-lg-3
+                            .card.blog-card
+                                // Post Image
+                                .post-img
+                                    img(src="img/bg-img/21.jpg", alt="")
+                                // Post Bookmark
+                                a.post-bookmark(href="#")
+                                    i.fa-solid.fa-bookmark
+
+                                // Post Content
+                                .post-content
+                                    .bg-shapes
+                                        .circle1
+                                        .circle2
+                                        .circle3
+                                        .circle4
+                                    // Post Catagory
+                                    a.post-catagory.d-block(href="#") Offer
+                                    // Post Title
+                                    a.post-title(href="blog-details.html") Mega Deals: Up to 75% discount
+                                    // Post Meta
+                                    .post-meta.d-flex.align-items-center.justify-content-between.flex-wrap.mb-2
+                                        a(href="#")
+                                            i.fa-solid.fa-user
+                                            | Dolly
+                                        span
+                                            i.fa-solid.fa-clock
+                                            | 1 min
+                                    // Read More Button
+                                    a(href="blog-details.html").btn.btn-primary.btn-sm.read-more-btn Read More
+
+                        // Single Blog Card
+                        .col-6.col-md-4.col-lg-3
+                            .card.blog-card
+                                // Post Image
+                                .post-img
+                                    img(src="img/bg-img/22.jpg", alt="")
+                                // Post Bookmark
+                                a.post-bookmark(href="#")
+                                    i.fa-solid.fa-bookmark
+
+                                // Post Content
+                                .post-content
+                                    .bg-shapes
+                                        .circle1
+                                        .circle2
+                                        .circle3
+                                        .circle4
+                                    // Post Catagory
+                                    a.post-catagory.d-block(href="#") Trends
+                                    // Post Title
+                                    a.post-title(href="blog-details.html") Bridal shopping is the latest trends of this month
+                                    // Post Meta
+                                    .post-meta.d-flex.align-items-center.justify-content-between.flex-wrap.mb-2
+                                        a(href="#")
+                                            i.fa-solid.fa-user
+                                            | Sarah
+                                        span
+                                            i.fa-solid.fa-clock
+                                            | 9 min
+                                    // Read More Button
+                                    a(href="blog-details.html").btn.btn-primary.btn-sm.read-more-btn Read More
+
+                        // Single Blog Card
+                        .col-6.col-md-4.col-lg-3
+                            .card.blog-card
+                                // Post Image
+                                .post-img
+                                    img(src="img/bg-img/23.jpg", alt="")
+                                // Post Bookmark
+                                a.post-bookmark(href="#")
+                                    i.fa-solid.fa-bookmark
+
+                                // Post Content
+                                .post-content
+                                    .bg-shapes
+                                        .circle1
+                                        .circle2
+                                        .circle3
+                                        .circle4
+                                    // Post Catagory
+                                    a.post-catagory.d-block(href="#") News
+                                    // Post Title
+                                    a.post-title(href="blog-details.html") How to easily buy a product
+                                    // Post Meta
+                                    .post-meta.d-flex.align-items-center.justify-content-between.flex-wrap.mb-2
+                                        a(href="#")
+                                            i.fa-solid.fa-user
+                                            | Suha
+                                        span
+                                            i.fa-solid.fa-clock
+                                            | 6 min
+                                    // Read More Button
+                                    a(href="blog-details.html").btn.btn-success.btn-sm.read-more-btn Read for $0.2
+
+                .container
+                    .section-heading.pt-3.rtl-text-right
+                        h6 Read by category
+
+                    .row.g-2.rtl-flex-d-row-r
+                        // Single Catagory
+                        .col-4
+                            .card.blog-catagory-card
+                                .card-body
+                                    a(href="#")
+                                        i.fa-solid.fa-quote-right
+                                        span.d-block Review
+
+                        // Single Catagory
+                        .col-4
+                            .card.blog-catagory-card
+                                .card-body
+                                    a(href="#")
+                                        i.fa-solid.fa-basket-shopping
+                                        span.d-block Shopping
+
+                        // Single Catagory
+                        .col-4
+                            .card.blog-catagory-card
+                                .card-body
+                                    a(href="#")
+                                        i.fa-solid.fa-lightbulb
+                                        span.d-block Tips
+
+                        // Single Catagory
+                        .col-4
+                            .card.blog-catagory-card
+                                .card-body
+                                    a(href="#")
+                                        i.fa-solid.fa-percent
+                                        span.d-block Offer
+
+                        // Single Catagory
+                        .col-4
+                            .card.blog-catagory-card
+                                .card-body
+                                    a(href="#")
+                                        i.fa-solid.fa-cloud-bolt
+                                        span.d-block Trends
+
+                        // Single Catagory
+                        .col-4
+                            .card.blog-catagory-card
+                                .card-body
+                                    a(href="#")
+                                        i.fa-solid.fa-newspaper
+                                        span.d-block News
+
+        include inc/footer-nav.pug
+
+        include inc/footer.pug

@@ -33,7 +33,7 @@ def register(request):
     else:
         form = RegistrationForm()
 
-    return render(request, 'accounts/register.html', {'form': form})
+    return render(request, 'suha/register.html', {'form': form})
 
 
 def login_view(request):
@@ -52,7 +52,7 @@ def login_view(request):
     else:
         form = LoginForm()
 
-    return render(request, 'pwa/accounts/login.html', {'form': form})
+    return render(request, 'suha/login.html', {'form': form})
 
 def profile_detail_view(request, pk):
     try:

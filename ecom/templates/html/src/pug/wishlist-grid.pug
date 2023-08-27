@@ -1,0 +1,251 @@
+doctype html
+html(lang="en")
+    head
+        include inc/head.pug
+
+    body
+        include inc/loader.pug
+
+        // Header Area
+        .header-area#headerArea
+            .container.h-100.d-flex.align-items-center.justify-content-between.rtl-flex-d-row-r
+                // Back Button
+                .back-button.me-2
+                    a(href="home.html")
+                        i.fa-solid.fa-arrow-left-long
+
+                // Page Title
+                .page-heading
+                    h6.mb-0 Wishlist
+
+                // Navbar Toggler
+                .suha-navbar-toggler.ms-2(data-bs-toggle="offcanvas", data-bs-target="#suhaOffcanvas", aria-controls="suhaOffcanvas")
+                    div
+                        span
+                        span
+                        span
+
+        include inc/sidenav.pug
+
+        .page-content-wrapper
+            .py-3
+                .container
+                    .section-heading.d-flex.align-items-center.justify-content-between.rtl-flex-d-row-r
+                        h6 Wishlist Items (6)
+
+                        // Layout Options 
+                        .layout-options
+                            a.active(href="wishlist-grid.html")
+                                i.fa-solid.fa-border-all
+
+                            a(href="wishlist-list.html")
+                                i.fa-solid.fa-list-ul
+
+                    .row.g-2.rtl-flex-d-row-r
+
+                        // Product Card 
+                        .col-6.col-md-4
+                            .card.product-card
+                                .card-body
+                                    // Badge
+                                    span.badge.rounded-pill.badge-warning Sale
+                                    // Delete Button
+                                    a.delete-btn(href="#")
+                                        i.fa-solid.fa-trash-can
+                                    // Thumbnail 
+                                    a.product-thumbnail.d-block(href="single-product.html")
+                                        img.mb-2(src="img/product/11.png", alt="")
+                                        // Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss 
+                                        ul.offer-countdown-timer.d-flex.align-items-center.shadow-sm(data-countdown="2023/12/31 23:59:59")
+                                            li
+                                                span.days 0
+                                                | d
+                                            li
+                                                span.hours 0
+                                                | h
+                                            li
+                                                span.minutes 0
+                                                | m
+                                            li
+                                                span.seconds 0
+                                                | s
+                                    // Product Title 
+                                    a.product-title(href="single-product.html") Beach Cap
+                                    // Product Price 
+                                    p.sale-price $13
+                                        span $42
+                                    // Rating 
+                                    .product-rating
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                    // Add to Cart 
+                                    a.btn.btn-success.btn-sm(href="#")
+                                        i.fa-solid.fa-plus
+
+                        // Product Card 
+                        .col-6.col-md-4
+                            .card.product-card
+                                .card-body
+                                    // Badge
+                                    span.badge.rounded-pill.badge-success New
+                                    // Delete Button
+                                    a.delete-btn(href="#")
+                                        i.fa-solid.fa-trash-can
+                                    // Thumbnail 
+                                    a.product-thumbnail.d-block(href="single-product.html")
+                                        img.mb-2(src="img/product/5.png", alt="")
+                                    // Product Title 
+                                    a.product-title(href="single-product.html") Wooden Sofa
+                                    // Product Price 
+                                    p.sale-price $74
+                                        span $99
+                                    // Rating 
+                                    .product-rating
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                    // Add to Cart 
+                                    a.btn.btn-success.btn-sm(href="#")
+                                        i.fa-solid.fa-plus
+
+                        // Product Card 
+                        .col-6.col-md-4
+                            .card.product-card
+                                .card-body
+                                    // Badge
+                                    span.badge.rounded-pill.badge-success Sale
+                                    // Delete Button
+                                    a.delete-btn(href="#")
+                                        i.fa-solid.fa-trash-can
+                                    // Thumbnail 
+                                    a.product-thumbnail.d-block(href="single-product.html")
+                                        img.mb-2(src="img/product/6.png", alt="")
+                                    // Product Title 
+                                    a.product-title(href="single-product.html") Roof Lamp
+                                    // Product Price 
+                                    p.sale-price $99
+                                        span $113
+                                    // Rating 
+                                    .product-rating
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                    // Add to Cart 
+                                    a.btn.btn-success.btn-sm(href="#")
+                                        i.fa-solid.fa-plus
+
+                        // Product Card 
+                        .col-6.col-md-4
+                            .card.product-card
+                                .card-body
+                                    // Badge
+                                    span.badge.rounded-pill.badge-danger -18%
+                                    // Delete Button
+                                    a.delete-btn(href="#")
+                                        i.fa-solid.fa-trash-can
+                                    // Thumbnail 
+                                    a.product-thumbnail.d-block(href="single-product.html")
+                                        img.mb-2(src="img/product/9.png", alt="")
+                                        // Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss 
+                                        ul.offer-countdown-timer.d-flex.align-items-center.shadow-sm(data-countdown="2022/12/23 00:21:29")
+                                            li
+                                                span.days 0
+                                                | d
+                                            li
+                                                span.hours 0
+                                                | h
+                                            li
+                                                span.minutes 0
+                                                | m
+                                            li
+                                                span.seconds 0
+                                                | s
+                                    // Product Title 
+                                    a.product-title(href="single-product.html") Sneaker Shoes
+                                    // Product Price 
+                                    p.sale-price $87
+                                        span $92
+                                    // Rating 
+                                    .product-rating
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                    // Add to Cart 
+                                    a.btn.btn-success.btn-sm(href="#")
+                                        i.fa-solid.fa-plus
+
+                        // Product Card 
+                        .col-6.col-md-4
+                            .card.product-card
+                                .card-body
+                                    // Badge
+                                    span.badge.rounded-pill.badge-danger -11%
+                                    // Delete Button
+                                    a.delete-btn(href="#")
+                                        i.fa-solid.fa-trash-can
+                                    // Thumbnail 
+                                    a.product-thumbnail.d-block(href="single-product.html")
+                                        img.mb-2(src="img/product/8.png", alt="")
+                                    // Product Title 
+                                    a.product-title(href="single-product.html") Wooden Chair
+                                    // Product Price 
+                                    p.sale-price $21
+                                        span $25
+                                    // Rating 
+                                    .product-rating
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                    // Add to Cart 
+                                    a.btn.btn-success.btn-sm(href="#")
+                                        i.fa-solid.fa-plus
+
+                        // Product Card 
+                        .col-6.col-md-4
+                            .card.product-card
+                                .card-body
+                                    // Badge
+                                    span.badge.rounded-pill.badge-warning On Sale
+                                    // Delete Button
+                                    a.delete-btn(href="#")
+                                        i.fa-solid.fa-trash-can
+                                    // Thumbnail 
+                                    a.product-thumbnail.d-block(href="single-product.html")
+                                        img.mb-2(src="img/product/4.png", alt="")
+                                    // Product Title 
+                                    a.product-title(href="single-product.html") Polo Shirts
+                                    // Product Price 
+                                    p.sale-price $38
+                                        span $41
+                                    // Rating 
+                                    .product-rating
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                        i.fa-solid.fa-star
+                                    // Add to Cart 
+                                    a.btn.btn-success.btn-sm(href="#")
+                                        i.fa-solid.fa-plus
+
+                        // Select All Products
+                        .col-12
+                            .select-all-products-btn.mt-2
+                                a.btn.btn-success.w-100(href="#")
+                                    i.fa-solid.fa-cart-shopping.me-2
+                                    | Add all items to cart
+
+        include inc/footer-nav.pug
+
+        include inc/footer.pug

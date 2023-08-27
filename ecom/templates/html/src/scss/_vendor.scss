@@ -1,0 +1,135 @@
+.single-vendor-wrap {
+    position: relative;
+    z-index: 1;
+    border-radius: .5rem;
+
+    &.bg-overlay::after {
+        border-radius: .5rem;
+        background: $heading;
+        opacity: .5;
+    }
+
+    .vendor-info {
+        p {
+            font-size: 12px;
+        }
+
+        .ratings > i {
+            color: $warning;
+            margin-right: 2px;
+            font-size: 10px;
+        }
+
+        span {
+            font-size: 12px;
+            margin-left: 4px;
+        }
+    }
+
+    .vendor-profile {
+        padding: 0.5rem;
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        background-color: $white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+
+        img {
+            max-width: 2.5rem;
+        }
+    }
+}
+
+.vendor-details-wrap {
+    position: relative;
+    z-index: 1;
+
+    &.bg-overlay::after {
+        background: $heading;
+        opacity: .75;
+    }
+
+    .vendor-profile {
+        padding: 0.5rem;
+        width: 4rem;
+        height: 4rem;
+        background-color: $white;
+        border-radius: .25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+
+        img {
+            max-width: 2.5rem;
+        }
+    }
+
+    .vendor-info {
+        p {
+            font-size: 12px;
+        }
+
+        .ratings > i {
+            color: $warning;
+            margin-right: 0;
+            font-size: 12px;
+        }
+
+        span {
+            font-size: 12px;
+            margin-left: 4px;
+        }
+    }
+
+    .single-basic-info {
+        color: $white;
+        display: flex;
+        margin-right: 1rem;
+        align-items: center;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .icon {
+            line-height: 1;
+            margin-right: .25rem;
+            color: $warning;
+            font-size: 14px;
+        }
+
+        span {
+            font-size: 13px;
+        }
+    }
+}
+
+.vendor-tabs {
+    background-color: $white;
+
+    .nav-tabs {
+        border-bottom: 0;
+    }
+
+    .nav-link {
+        margin-bottom: 0;
+        border: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        color: $text;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .nav-item.show .nav-link,
+    .nav-link.active {
+        color: $heading;
+    }
+}

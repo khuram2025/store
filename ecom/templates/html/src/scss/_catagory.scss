@@ -1,0 +1,56 @@
+/* Catagory CSS */
+
+.catagory-card {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    transition-duration: 500ms;
+
+    a {
+        display: block;
+    }
+
+    i {
+        margin-bottom: 0.75rem;
+        font-size: 1.5rem;
+        display: block;
+        color: $heading;
+    }
+
+    img {
+        margin: 0 auto 0.5rem;
+        display: block;
+        max-height: 36px;
+    }
+
+    span {
+        transition-duration: 500ms;
+        display: block;
+        font-size: 12px;
+        line-height: 1;
+        color: $text;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &.active,
+    &:hover,
+    &:focus {
+        background-color: $text-light;
+
+        span {
+            color: $heading;
+        }
+    }
+}
+
+.catagory-single-img {
+    width: 100%;
+    height: 130px;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 6px;
+}

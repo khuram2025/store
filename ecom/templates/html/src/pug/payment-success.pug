@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+    head
+        include inc/head.pug
+
+    body
+        include inc/loader.pug
+
+        // Order/Payment Success
+        .order-success-wrapper
+            .content
+                i.fa-solid.fa-basket-shopping
+                h5.text-white Payment successful
+                p.text-white.opacity-75 We will notify you of all the details via email. Thank you!
+                a.btn.btn-warning.mt-3(href="home.html") Shopping Again
+
+        include inc/footer-no-internet.pug

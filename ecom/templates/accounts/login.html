@@ -1,97 +1,85 @@
-{% extends 'base.html' %} {% load static %} {% block title %} Home {% endblock %} {% block content %}
-<body>
-  <!-- Loader Start -->
-  <div class="fullpage-loader">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+{% extends 'suha/base.html' %} {% load static %} {% block content %}
+<!-- Preloader-->
+<div class="preloader" id="preloader">
+  <div class="spinner-grow text-secondary" role="status">
+    <div class="sr-only"></div>
   </div>
-  <!-- Loader End -->
+</div>
 
-  <!-- mobile fix menu start -->
+<!-- Login Section -->
+<section class="log-in-section background-image-2 section-b-space">
+  <div class="container-fluid-lg w-100">
+    <div class="row">
+      <div class="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
+        <div class="image-contain">
+          <img src="{% static 'images/inner-page/log-in.png' %}" class="img-fluid" alt="" />
+        </div>
+      </div>
 
-  <!-- mobile fix menu end -->
+      <div class="col-xxl-4 col-xl-5 col-lg-6 col-sm-8 mx-auto">
+        <div class="log-in-box">
+          <div class="log-in-title">
+            <h4>Log In Your Account</h4>
+          </div>
 
-  <!-- Breadcrumb Section Start -->
-  <section class="breadscrumb-section pt-0">
-    <div class="container-fluid-lg">
-      <div class="row">
-        <div class="col-12">
-          <div class="breadscrumb-contain">
-            <h2 class="mb-2">Welcome to Channab</h2>
+          <div class="input-box">
+            <form action="{% url 'accounts:login' %}" method="post" class="row g-4">
+              {% csrf_token %}
+              <div class="col-12">
+                <div class="form-floating theme-form-floating log-in-form">
+                  <input type="tel" class="form-control" id="{{ form.mobile_number.id_for_label }}" name="{{ form.mobile_number.name }}" placeholder="Mobile Number" />
+                  <label for="{{ form.mobile_number.id_for_label }}">Mobile Number</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating theme-form-floating log-in-form">
+                  <input type="password" class="form-control" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" placeholder="Password" />
+                  <label for="{{ form.password.id_for_label }}">Password</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="forgot-box">
+                  <div class="form-check ps-0 m-0 remember-box">
+                    <input class="checkbox_animated check-box" type="checkbox" id="flexCheckDefault" />
+                    <label class="form-check-label" for="flexCheckDefault">Remember me</label>
+                  </div>
+                  <a href="{% url 'accounts:password_reset_request' %}" class="forgot-password">Forgot Password?</a>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <button class="btn btn-animation w-100 justify-content-center" type="submit">Log In</button>
+              </div>
+            </form>
+          </div>
+          <div class="other-log-in">
+            <h6></h6>
+          </div>
+
+          <div class="sign-up-box">
+            <h4>Don't have an account?</h4>
+            <a href="{% url 'accounts:register' %}">Sign Up</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- Breadcrumb Section End -->
+  </div>
+</section>
 
-  <!-- log in section start -->
-  <section class="log-in-section background-image-2 section-b-space">
-    <div class="container-fluid-lg w-100">
-      <div class="row">
-        <div class="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
-          <div class="image-contain">
-            <img src="{% static 'images/inner-page/log-in.png' %}" class="img-fluid" alt="" />
-          </div>
-        </div>
-
-        <div class="col-xxl-4 col-xl-5 col-lg-6 col-sm-8 mx-auto">
-          <div class="log-in-box">
-            <div class="log-in-title">
-              <h4>Log In Your Account</h4>
-            </div>
-
-            <div class="input-box">
-              <form action="{% url 'accounts:login' %}" method="post" class="row g-4">
-                {% csrf_token %}
-                <div class="col-12">
-                  <div class="form-floating theme-form-floating log-in-form">
-                    <input type="tel" class="form-control" id="{{ form.mobile_number.id_for_label }}" name="{{ form.mobile_number.name }}" placeholder="Mobile Number" />
-                    <label for="{{ form.mobile_number.id_for_label }}">Mobile Number</label>
-                  </div>
-                </div>
-
-                <div class="col-12">
-                  <div class="form-floating theme-form-floating log-in-form">
-                    <input type="password" class="form-control" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" placeholder="Password" />
-                    <label for="{{ form.password.id_for_label }}">Password</label>
-                  </div>
-                </div>
-
-                <div class="col-12">
-                  <div class="forgot-box">
-                    <div class="form-check ps-0 m-0 remember-box">
-                      <input class="checkbox_animated check-box" type="checkbox" id="flexCheckDefault" />
-                      <label class="form-check-label" for="flexCheckDefault">Remember me</label>
-                    </div>
-                    <a href="{% url 'accounts:password_reset_request' %}" class="forgot-password">Forgot Password?</a>
-                  </div>
-                </div>
-
-                <div class="col-12">
-                  <button class="btn btn-animation w-100 justify-content-center" type="submit">Log In</button>
-                </div>
-              </form>
-            </div>
-            <div class="other-log-in">
-              <h6></h6>
-            </div>
-
-            <div class="sign-up-box">
-              <h4>Don't have an account?</h4>
-              <a href="{% url 'accounts:register' %}">Sign Up</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- log in section end -->
-
-  {% endblock %}
-</body>
+<!-- All JavaScript Files-->
+<script src="{% static 'suha/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'suha/js/jquery.min.js' %}"></script>
+<script src="{% static 'suha/js/waypoints.min.js' %}"></script>
+<script src="{% static 'suha/js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'suha/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'suha/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'suha/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'suha/js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'suha/js/jquery.passwordstrength.js' %}"></script>
+<script src="{% static 'suha/js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'suha/js/theme-switching.js' %}"></script>
+<script src="{% static 'suha/js/active.js' %}"></script>
+<script src="{% static 'suha/js/pwa.js' %}"></script>
+{% endblock %}

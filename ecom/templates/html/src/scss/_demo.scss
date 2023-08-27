@@ -1,0 +1,212 @@
+/* Demo CSS */
+
+.preview-iframe-wrapper {
+    .container.demo-container {
+        @media #{$breakpoint-xl} {
+            max-width: 1090px;
+        }
+
+        @media #{$breakpoint-lg} {
+            max-width: 850px;
+        }
+
+        @media #{$breakpoint-md} {
+            max-width: 450px;
+        }
+
+        @media #{$breakpoint-xs} {
+            max-width: 340px;
+        }
+
+        @media #{$breakpoint-sm} {
+            max-width: 380px;
+        }
+    }
+
+    .preview-hero-area {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        background-image: linear-gradient(to right, #e5e8ff, #ebecff, #f1f0ff, #f6f5ff, #faf9ff, #faf9ff, #faf9ff, #faf9ff, #f6f5ff, #f1f0ff, #ebecff, #e5e8ff);
+
+        @media #{$breakpoint-xs} {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            background-image: url(img/core-img/curve.png);
+            bottom: 0;
+            width: 142px;
+            height: 121px;
+            background-repeat: no-repeat;
+            right: 0;
+            z-index: auto;
+        }
+
+        iframe {
+            position: relative;
+            z-index: 1;
+            width: 368px;
+            height: 648px;
+            border: 5px solid $text;
+            border-radius: 1.25rem;
+            box-shadow: 0 8px 15px rgba(14, 14, 14, 0.175);
+
+            @media #{$breakpoint-xs} {
+                display: none;
+            }
+
+            @media #{$breakpoint-md} {
+                display: none;
+            }
+        }
+
+        .badge {
+            font-size: 16px;
+        }
+
+        .alert {
+            margin-bottom: 80px;
+
+            @media #{$breakpoint-xs} {
+                margin-bottom: 2rem;
+            }
+        }
+
+        .live-preview-btn {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .preview-content-wrapper {
+        .demo-title {
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            font-weight: 700;
+            line-height: 1.3;
+
+            span {
+                color: $primary;
+            }
+        }
+
+        .demo-desc {
+            font-size: 1rem;
+        }
+    }
+
+    .qr-code-wrapper {
+        background-color: $white;
+        text-align: center;
+        max-width: 100%;
+        padding: 1.5rem;
+        border-radius: 6px;
+
+        h6 {
+            font-size: 14px;
+        }
+
+        @media #{$breakpoint-lg} {
+            max-width: 280px;
+        }
+
+        @media #{$breakpoint-xs} {
+            max-width: 240px;
+            padding: 1rem;
+        }
+
+        @media #{$breakpoint-md} {
+            max-width: 280px;
+        }
+    }
+
+    .features-area {
+        padding: 80px 0;
+        border-radius: 3rem 0 0 0;
+
+        @media #{$breakpoint-xs} {
+            padding: 2rem 0;
+        }
+
+        ul li {
+            position: relative;
+            z-index: 1;
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+
+            &::before {
+                position: absolute;
+                content: "\f00c";
+                top: 0;
+                left: 0;
+                font-family: "FontAwesome";
+                font-size: 16px;
+                color: $text;
+                z-index: 1;
+            }
+
+            &.active {
+                color: $heading;
+                font-weight: 500;
+
+                &::before {
+                    color: $heading;
+                }
+            }
+        }
+    }
+}
+
+.border-top.margin-100,
+.tablet-wrap {
+    margin-top: 80px;
+}
+
+.ipad-frame-wrap {
+    text-align: center;
+
+    iframe {
+        width: 768px;
+        height: 1024px;
+        border: 10px solid #d7def4;
+        border-radius: 1.5rem;
+
+        @media #{$breakpoint-md} {
+            display: none;
+        }
+
+        @media #{$breakpoint-xs} {
+            display: none;
+        }
+    }
+}
+
+.preview-footer-area {
+    width: 100%;
+    height: 80px;
+
+    @media #{$breakpoint-xs} {
+        height: 60px;
+    }
+
+    .footer-nav a {
+        margin-left: 1rem;
+        font-size: 14px;
+        color: $text;
+        font-weight: 600;
+
+        &:hover,
+        &:focus {
+            color: $primary;
+        }
+    }
+
+    .footer-logo img {
+        max-height: 50px;
+    }
+}

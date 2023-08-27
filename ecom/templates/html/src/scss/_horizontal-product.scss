@@ -1,0 +1,151 @@
+/* Weekly Product Card CSS */
+
+.horizontal-product-card {
+    .product-thumbnail-side {
+        flex: 0 0 120px;
+        width: 120px;
+        max-width: 120px;
+
+        .product-thumbnail {
+            position: relative;
+            z-index: 1;
+            background-color: $white;
+            text-align: center;
+            border-radius: .5rem;
+            margin-right: 1rem;
+            padding: 5px;
+
+            img {
+                max-height: 110px;
+            }
+
+            .offer-countdown-timer {
+                background-color: $warning;
+                position: absolute;
+                bottom: 1.75rem;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                border-radius: 5rem;
+                padding: 4px 8px 3px !important;
+    
+                li {
+                    font-size: 11px;
+                    line-height: 1;
+                    margin-right: .25rem;
+                    color: $heading;
+                    font-weight: 500;
+    
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    span {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    .product-description {
+        position: relative;
+        z-index: 1;
+        flex: 0 0 calc(100% - 120px);
+        width: calc(100% - 120px);
+        max-width: calc(100% - 120px);
+        padding-right: 1.5rem;
+
+        .product-title {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: $heading;
+            line-height: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #ea4c62;
+            z-index: 11;
+            font-size: 14px;
+            background-color: $white;
+            border-radius: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: $text;
+            z-index: 11;
+            font-size: 12px;
+            background-color: $white;
+            border-radius: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sale-price {
+            margin-bottom: .25rem;
+            font-size: 1rem;
+            color: $heading;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+
+            i {
+                flex: 0 0 20px;
+                max-width: 20px;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                border-radius: 50%;
+                color: $white;
+                background-color: $dark-tertiary;
+                font-size: .625rem;
+                text-align: center;
+                margin-right: .25rem;
+            }
+
+            span {
+                text-decoration: line-through;
+                color: $danger;
+                margin-left: .25rem;
+            }
+        }
+
+        .product-rating {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+
+            i {
+                flex: 0 0 20px;
+                max-width: 20px;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                border-radius: 50%;
+                color: $white;
+                background-color: $warning;
+                font-size: .625rem;
+                text-align: center;
+                margin-right: .25rem;
+            }
+        }
+    }
+}

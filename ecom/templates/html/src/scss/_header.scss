@@ -1,0 +1,210 @@
+/* Header CSS */
+
+.header-area {
+    transition-duration: 500ms;
+    background-color: $white;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 0 4px rgba(15, 15, 15, 0.1);
+}
+
+.cart-icon-wrap {
+    a {
+        display: block;
+        position: relative;
+        z-index: 1;
+        color: $heading;
+        font-size: 1.375rem;
+        line-height: 1;
+        margin-bottom: 3px;
+        margin-right: 6px;
+
+        i {
+            color: $text;
+            font-size: 1.5rem;
+        }
+
+        img {
+            max-width: 1.625rem;
+            line-height: 1;
+        }
+
+        span {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            text-align: center;
+            color: $white;
+            font-size: 10px;
+            background-color: $dark;
+            top: 12px;
+            right: -6px;
+            line-height: 16px;
+        }
+    }
+}
+
+.user-profile-icon {
+    a {
+        display: block;
+        border: 2px solid $border;
+        border-radius: 50%;
+        padding: 2px;
+
+        img {
+            max-width: 1.5rem;
+            border-radius: 50%;
+        }
+    }
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+
+    form {
+        position: relative;
+        z-index: 1;
+        flex: 0 0 calc(100% - 50px);
+        max-width: calc(100% - 50px);
+        width: calc(100% - 50px);
+
+        .form-control {
+            width: 100%;
+            background-color: $text-light;
+            height: 40px;
+            font-size: 14px;
+            padding: 10px 15px;
+            padding-left: 42px;
+            border: 1px solid $text-light;
+            color: $text;
+            border-radius: .4rem;
+        }
+
+        button {
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            width: 18px;
+            height: 40px;
+            border: 0;
+            z-index: 100;
+            color: $text;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .alternative-search-options {
+        margin-left: auto;
+
+        .dropdown-toggle {
+            border-radius: 0.4rem;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            line-height: 40px;
+            font-size: 1rem;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        .dropdown-menu {
+            border: 0;
+            min-width: 8rem;
+
+            .dropdown-item {
+                color: $text;
+                font-size: 14px;
+                font-weight: 500;
+
+                i {
+                    margin-right: 0.25rem;
+                }
+
+                &:hover,
+                &:focus {
+                    font-weight: 500;
+                    background-color: transparent;
+                    color: $heading;
+                }
+            }
+        }
+    }
+}
+
+.suha-navbar-toggler {
+    position: relative;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    border: 2px solid $border;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
+        position: relative;
+        z-index: 1;
+    }
+
+    span {
+        transition-duration: 500ms;
+        width: 16px;
+        height: 2px;
+        background-color: $text;
+        margin-bottom: 3px;
+        display: block;
+
+        &:nth-child(2) {
+            width: 8px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+            width: 12px;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        span {
+            width: 16px;
+        }
+    }
+}
+
+.filter-option {
+    cursor: pointer;
+    text-align: right;
+}
+
+.back-button {
+    a {
+        display: block;
+        color: $text;
+        font-size: 18px;
+
+        &:hover,
+        &:focus {
+            color: $primary;
+        }
+    }
+}
+
+.logo-wrapper a {
+    display: block;
+}

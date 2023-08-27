@@ -14,5 +14,11 @@ def youtube_id(value):
                   else None)
     return trailer_id
 @register.filter
-def split(value, arg):
-    return value.split(arg)
+def split(value, key):
+    """
+    Splits the value by a key and returns the value of the resultant list at index 1.
+    """
+    try:
+        return value.split(key)[1]
+    except:
+        return value

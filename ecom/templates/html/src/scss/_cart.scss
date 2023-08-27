@@ -1,0 +1,120 @@
+/* Cart CSS */
+
+.cart-table {
+    position: relative;
+    z-index: 1;
+
+    table {
+        max-width: 100%;
+
+        tbody {
+            tr {
+                background-color: $white;
+                border-bottom: 2px dashed $border;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        a {
+            color: $heading;
+
+            &.remove-product {
+                color: $white;
+                width: 24px;
+                height: 24px;
+                background-color: $danger;
+                display: inline-block;
+                text-align: center;
+                line-height: 25px;
+                border-radius: 50%;
+                font-size: 12px;
+
+                &:hover,
+                &:focus {
+                    color: $white;
+                    background-color: $heading;
+                }
+            }
+
+            span {
+                display: block;
+                color: $text;
+            }
+
+            &:hover,
+            &:focus {
+                color: $primary;
+            }
+        }
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+        color: $text;
+        font-size: 14px;
+        padding: 1rem .5rem;
+        border: 0;
+    }
+
+    img {
+        max-width: 2.5rem;
+        border: 1px solid $border;
+    }
+
+    .qty-text {
+        width: 2.5rem;
+        text-align: center;
+        height: 2rem;
+        border-radius: .25rem;
+        transition-duration: 300ms;
+        border: 0 !important;
+        background-color: $text-light;
+    }
+}
+
+.coupon-card {
+    .card-body {
+        padding: 1.25rem;
+    }
+}
+
+.cart-amount-area {
+    .card-body {
+        padding: .75rem 1.25rem;
+    }
+}
+
+.apply-coupon {
+    position: relative;
+    z-index: 1;
+
+    p {
+        font-size: 12px;
+    }
+}
+
+.coupon-form {
+    position: relative;
+    z-index: 1;
+
+    .form-control {
+        height: 35px;
+        padding: 5px 15px;
+        font-size: 12px;
+        border-radius: .4rem;
+    }
+
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        height: 35px;
+    }
+}

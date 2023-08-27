@@ -1,0 +1,149 @@
+doctype html
+html(lang="en")
+    head
+        include inc/head.pug
+
+    body
+        include inc/loader.pug
+
+        // Header Area
+        .header-area#headerArea
+            .container.h-100.d-flex.align-items-center.justify-content-between.rtl-flex-d-row-r
+                // Back Button
+                .back-button.me-2
+                    a(href="shop-grid.html")
+                        i.fa-solid.fa-arrow-left-long
+
+                // Page Title
+                .page-heading
+                    h6.mb-0 Vendors
+
+                // Navbar Toggler
+                .suha-navbar-toggler.ms-2(data-bs-toggle="offcanvas", data-bs-target="#suhaOffcanvas", aria-controls="suhaOffcanvas")
+                    div
+                        span
+                        span
+                        span
+
+        include inc/sidenav.pug
+
+        .page-content-wrapper.py-3
+            .container
+                .row.gy-3
+                    .col-12
+                        // Single Vendor 
+                        .single-vendor-wrap.bg-img.p-4.bg-overlay(style="background-image: url('img/bg-img/12.jpg')")
+                            h5.vendor-title.text-white Designing World
+                            .vendor-info
+                                p.mb-1.text-white
+                                    i.fa-solid.fa-location-dot.me-1
+                                    | Dhaka, Bangladesh
+                                .ratings.lh-1
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    span.text-white (99% Positive Seller)
+                            a.btn.btn-warning.btn-sm.mt-3(href="vendor-shop.html") Go To Store
+                                i.fa-solid.fa-arrow-right-long.ms-1
+                            
+                            // Vendor Profile
+                            .vendor-profile.shadow
+                                figure.m-0
+                                    img(src="img/product/dw.png", alt="")
+
+                    .col-12
+                        // Single Vendor 
+                        .single-vendor-wrap.bg-img.p-4.bg-overlay(style="background-image: url('img/bg-img/16.jpg')")
+                            h5.vendor-title.text-white Stylie Wear
+                            .vendor-info
+                                p.mb-1.text-white
+                                    i.fa-solid.fa-location-dot.me-1
+                                    | Dhaka, Bangladesh
+                                .ratings.lh-1
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    span.text-white (99% Positive Seller)
+                            a.btn.btn-warning.btn-sm.mt-3(href="vendor-shop.html") Go To Store
+                                i.fa-solid.fa-arrow-right-long.ms-1
+                            
+                            // Vendor Profile
+                            .vendor-profile.shadow
+                                figure.m-0
+                                    img(src="img/product/stylie.png", alt="")
+
+                    .col-12
+                        // Single Vendor 
+                        .single-vendor-wrap.bg-img.p-4.bg-overlay(style="background-image: url('img/bg-img/14.jpg')")
+                            h5.vendor-title.text-white Suha
+                            .vendor-info
+                                p.mb-1.text-white
+                                    i.fa-solid.fa-location-dot.me-1
+                                    | Dhaka, Bangladesh
+                                .ratings.lh-1
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    span.text-white (99% Positive Seller)
+                            a.btn.btn-warning.btn-sm.mt-3(href="vendor-shop.html") Go To Store
+                                i.fa-solid.fa-arrow-right-long.ms-1
+                            
+                            // Vendor Profile
+                            .vendor-profile.shadow
+                                figure.m-0
+                                    img(src="img/core-img/logo-small.png", alt="")
+
+                    .col-12
+                        // Single Vendor 
+                        .single-vendor-wrap.bg-img.p-4.bg-overlay(style="background-image: url('img/bg-img/15.jpg')")
+                            h5.vendor-title.text-white Affan
+                            .vendor-info
+                                p.mb-1.text-white
+                                    i.fa-solid.fa-location-dot.me-1
+                                    | Dhaka, Bangladesh
+                                .ratings.lh-1
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    span.text-white (99% Positive Seller)
+                            a.btn.btn-warning.btn-sm.mt-3(href="vendor-shop.html") Go To Store
+                                i.fa-solid.fa-arrow-right-long.ms-1
+                            
+                            // Vendor Profile
+                            .vendor-profile.shadow
+                                figure.m-0
+                                    img(src="img/product/affan.png", alt="")
+                    .col-12
+                        // Single Vendor 
+                        .single-vendor-wrap.bg-img.p-4.bg-overlay(style="background-image: url('img/bg-img/17.jpg')")
+                            h5.vendor-title.text-white News Ten
+                            .vendor-info
+                                p.mb-1.text-white
+                                    i.fa-solid.fa-location-dot.me-1
+                                    | Dhaka, Bangladesh
+                                .ratings.lh-1
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    i.fa-solid.fa-star
+                                    span.text-white (99% Positive Seller)
+                            a.btn.btn-warning.btn-sm.mt-3(href="vendor-shop.html") Go To Store
+                                i.fa-solid.fa-arrow-right-long.ms-1
+                            
+                            // Vendor Profile
+                            .vendor-profile.shadow
+                                figure.m-0
+                                    img(src="img/product/newsten.png", alt="")
+
+        include inc/footer-nav.pug
+
+        include inc/footer.pug
