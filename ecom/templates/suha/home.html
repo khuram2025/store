@@ -193,8 +193,8 @@
   <!-- Dark Mode -->
 
   <!-- Top Products -->
-
-  <div class="weekly-best-seller-area py-3">
+  {% for product in most_viewed_products %}
+  <div class="top-products-area py-3">
     <div class="container">
       <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
         <h6>Top Products</h6>
@@ -243,48 +243,20 @@
                   <div class="product-rating"><i class="fa-solid fa-star"></i>4.88 <span class="ms-1">({{product.views}} views)</span></div>
                 </div>
 
-                {% if product.updated_at > product.created_at %}
-                {% with action="Updated" date=product.updated_at %}
-                {% with delta=now|timesince:date %}
-                <div style="display: inline-block; font-size: 13px">{{ action }}
-                  {% if delta.days >= 30 %}
-                  {{ delta.days|div:"30" }} months
-                  {% elif delta.days > 0 %}
-                  {{ delta.days }} days
-                  {% else %}
-                  {{ delta.seconds|div:"3600" }} hours
-                  {% endif %}
-                  ago
-                </div>
-                {% endwith %}
-                {% endwith %}
-                {% else %}
-                {% with action="Posted" date=product.created_at %}
-                {% with delta=now|timesince:date %}
-                <div style="display: inline-block; font-size: 13px">{{ action }}
-                  {% if delta.days >= 30 %}
-                  {{ delta.days|div:"30" }} months
-                  {% elif delta.days > 0 %}
-                  {{ delta.days }} days
-                  {% else %}
-                  {{ delta.seconds|div:"3600" }} hours
-                  {% endif %}
-                  ago
-                </div>
-                {% endwith %}
-                {% endwith %}
-                {% endif %}
-
+                {% if product.updated_at > product.created_at %} {% with action="Updated" date=product.updated_at %} {% with delta=now|timesince:date %}
+                <div style="display: inline-block; font-size: 13px">{{ action }} {% if delta.days >= 30 %} {{ delta.days|div:"30" }} months {% elif delta.days > 0 %} {{ delta.days }} days {% else %} {{ delta.seconds|div:"3600" }} hours {% endif %} ago</div>
+                {% endwith %} {% endwith %} {% else %} {% with action="Posted" date=product.created_at %} {% with delta=now|timesince:date %}
+                <div style="display: inline-block; font-size: 13px">{{ action }} {% if delta.days >= 30 %} {{ delta.days|div:"30" }} months {% elif delta.days > 0 %} {{ delta.days }} days {% else %} {{ delta.seconds|div:"3600" }} hours {% endif %} ago</div>
+                {% endwith %} {% endwith %} {% endif %}
               </div>
             </div>
           </div>
         </div>
         {% endfor %}
-
       </div>
     </div>
   </div>
-
+  {% endfor %}
   <!-- CTA Area -->
   <div class="container">
     <div class="cta-text dir-rtl p-4 p-lg-5">
@@ -389,4 +361,3 @@
 <div class="internet-connection-status" id="internetStatus"></div>
 <!-- Footer Nav-->
 {% include "suha/footer.html" %} {% endblock %}
-</div>
