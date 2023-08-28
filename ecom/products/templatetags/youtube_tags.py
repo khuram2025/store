@@ -31,3 +31,9 @@ def split_name(name):
         return f"{first_word} {last_word}"
     else:
         return words[0].capitalize() if words else ""
+@register.filter(name='div')
+def div(value, arg):
+    try:
+        return int(value) / int(arg)
+    except (ValueError, ZeroDivisionError):
+        return 0

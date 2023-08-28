@@ -42,6 +42,12 @@ class Category(MPTTModel):
     is_active = models.BooleanField(default=True)
     specifications = models.ManyToManyField(ProductSpecification, blank=True)
     image = models.ImageField(upload_to='categories/', blank=True, null=True)
+    # SEO description
+    seo_description = models.TextField(
+        verbose_name=_("SEO Description"),
+        help_text=_("SEO-friendly description for the category"),
+        blank=True,
+    )
 
     class MPTTMeta:
         order_insertion_by = ["name"]
@@ -60,11 +66,6 @@ class Category(MPTTModel):
     
     def get_root_category(self):
         return self.get_ancestors(include_self=True).first()
-
-
-
-    
-
     def __str__(self):
         return self.name
 
@@ -80,6 +81,8 @@ class Product(models.Model):
     )
     description = models.TextField(verbose_name=_("description"), help_text=_("Not Required"), blank=True)
     slug = models.SlugField(max_length=255, blank=True, null=True)
+    views = models.PositiveIntegerField(default=0)
+
     regular_price = models.DecimalField(
         verbose_name=_("Regular price"),
         help_text=_("Maximum 999.99"),

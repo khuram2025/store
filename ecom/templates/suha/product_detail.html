@@ -80,7 +80,7 @@
       <!-- Featured Image -->
       {% if product.youtube_link %}
       <div class="single-product-slide">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ product.youtube_link|youtube_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="productVideo" width="100%" height="315" src="https://www.youtube.com/embed/{{ product.youtube_link|youtube_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       {% endif %} {% if featured_image %}
       <div class="single-product-slide" style="background-image: url('{{ featured_image.image.url }}')"></div>
@@ -132,7 +132,7 @@
           <!-- 2nd Column: Seller Name & Ratings -->
           <div class="col-4">
             <div class="mb-1">
-              <strong>{{ product.seller_name|split_name }}</strong> <i class="fa-solid fa-badge-check"></i>
+              <strong>{{ product.seller_name }}</strong> <i class="fa-solid fa-badge-check"></i>
 
               <!-- Verified Icon -->
             </div>
@@ -210,45 +210,31 @@
 <!-- Internet Connection Status-->
 <div class="internet-connection-status" id="internetStatus"></div>
 <!-- Footer Nav-->
-<div class="footer-nav-area" id="footerNav">
-  <div class="suha-footer-nav">
-    <ul class="h-100 d-flex align-items-center justify-content-between ps-0 d-flex rtl-flex-d-row-r">
-      <li>
-        <a href="home.html"><i class="fa-solid fa-house"></i>Home</a>
-      </li>
-      <li>
-        <a href="message.html"><i class="fa-solid fa-comment-dots"></i>Chat</a>
-      </li>
-      <li>
-        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i>Basket</a>
-      </li>
-      <li>
-        <a href="settings.html"><i class="fa-solid fa-gear"></i>Settings</a>
-      </li>
-      <li>
-        <a href="pages.html"><i class="fa-solid fa-heart"></i>Pages</a>
-      </li>
-    </ul>
-  </div>
-</div>
+{% include "suha/footer.html" %}
 <script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player("productVideo", {
-      events: {
-        onStateChange: onPlayerStateChange,
-      },
-    });
-  }
 
-  function onPlayerStateChange(event) {
-    var owl = $(".product-slides").data("owl.carousel");
-    if (event.data == YT.PlayerState.PLAYING) {
-      owl.stop();
-    } else {
-      owl.play();
+<script>
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+      console.log("YouTube Iframe API is ready."); // Debugging line
+      player = new YT.Player('productVideo', {
+     videoId: '{{ product.youtube_link|youtube_id }}',
+     events: {
+       'onStateChange': onPlayerStateChange
+     }
+  });
+    function onPlayerStateChange(event) {
+      console.log("Player state changed to: ", event.data); // Debugging line
+      var owl = $(".product-slides").data("owl.carousel");
+      if (event.data == YT.PlayerState.PLAYING) {
+        console.log("Attempting to stop the owl carousel."); // Debugging line
+        owl.stop();
+      } else {
+        console.log("Attempting to play the owl carousel."); // Debugging line
+        owl.play();
+      }
     }
-  }
 </script>
+
 {%endblock%}
